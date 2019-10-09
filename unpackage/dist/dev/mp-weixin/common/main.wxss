@@ -1,0 +1,91 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+.tabTop {
+	width: 100%;
+	height: 40rpx;
+}
+.qbg {
+	width: 100%;
+	/* height: 100vh; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.u_f,
+.u_f_jc,
+.u_f_ac,
+.u_f_jfs,
+.u_f_jsb,
+.u_f_jfe,
+.u_f_jc {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+.u_f_jc {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: column;
+	    -ms-flex-flow: column;
+	        flex-flow: column;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around; 
+	-webkit-box-align: start; 
+	-webkit-align-items: flex-start; 
+	    -ms-flex-align: start; 
+	        align-items: flex-start;
+}
+.u_f_jc {
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.u_f_jfs {
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	    -ms-flex-pack: start;
+	        justify-content: flex-start;
+}
+.u_f_jsb {
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+.u_f_jfe {
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+}
+.u_f_ac {
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
+/* 引入动画库 */
+

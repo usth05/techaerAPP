@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/recruitment/recruitment",
+    "pages/workbench/workbench",
+    "pages/home/home"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFF",
+    "backgroundColor": "#FFF",
+    "transparentTitle": "always"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#FA6814",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "fontSize": "24px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/index.png",
+        "selectedIconPath": "static/images/indexed.png"
+      },
+      {
+        "pagePath": "pages/recruitment/recruitment",
+        "text": "招聘",
+        "iconPath": "static/images/news.png",
+        "selectedIconPath": "static/images/newsed.png"
+      },
+      {
+        "pagePath": "pages/workbench/workbench",
+        "text": "工作台",
+        "iconPath": "static/images/paper.png",
+        "selectedIconPath": "static/images/papered.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/homeed.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,1 @@
+<view><image class="qbg" src="{{bgImg}}" mode="widthFix"></image><notice vue-id="1" text="{{notice}}" bind:__l="__l"></notice><view class="user u_f_jfs"><view class="userImg"><image src="{{user.img}}" mode="widthFix"></image></view><view class="userInfo u_f_jc"><text>{{"昵称:"+user.name}}</text><text>{{"性别:"+user.sex}}</text></view></view></view>

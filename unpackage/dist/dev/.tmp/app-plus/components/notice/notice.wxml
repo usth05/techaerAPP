@@ -1,0 +1,1 @@
+<view class="notice u_f_ac data-v-6d06aa52"><image class="laba data-v-6d06aa52" src="../../static/images/laba.png" mode="widthFix"></image><text class="noticeText data-v-6d06aa52">{{text}}</text></view>

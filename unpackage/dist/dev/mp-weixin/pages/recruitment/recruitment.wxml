@@ -1,0 +1,1 @@
+<view><image class="qbg" src="{{bgImg}}" mode="widthFix"></image></view>
