@@ -42,7 +42,7 @@
 				user: {
 					realName: '',
 					account: '',
-					img: '../../static/images/homeed.png'
+					img: '../../static/images/homeed.png' 
 				}
 			}
 		},

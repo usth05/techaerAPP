@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"typeItem { padding: 0 ",[0,10],"; }\n.",[1],"item { width: 48%; line-height: 0; font-size: 0; margin: ",[0,10]," 0; }\n.",[1],"item wx-image { width: 100%; }\n",],undefined,{path:"./pages/workbench/workbench.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/workbench/workbench.wxml') } }));

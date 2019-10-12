@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/recruitment/recruitment",
+    "pages/workbench/workbench",
+    "pages/home/home",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/recruitmentDetail/recruitmentDetail",
+    "pages/reviseUser/reviseUser",
+    "pages/revisePwd/revisePwd",
+    "pages/peiyou/peiyou"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小学阅读吧教师端",
+    "navigationBarBackgroundColor": "#FFF",
+    "backgroundColor": "#FFF",
+    "bounce": "none"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#FA6814",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "fontSize": "24px",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/index.png",
+        "selectedIconPath": "static/images/indexed.png"
+      },
+      {
+        "pagePath": "pages/workbench/workbench",
+        "text": "工作台",
+        "iconPath": "static/images/paper.png",
+        "selectedIconPath": "static/images/papered.png"
+      },
+      {
+        "pagePath": "pages/recruitment/recruitment",
+        "text": "招聘",
+        "iconPath": "static/images/news.png",
+        "selectedIconPath": "static/images/newsed.png"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/homeed.png"
+      }
+    ]
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "小学阅读吧教师端",
+  "compilerVersion": "2.3.3",
+  "usingComponents": {}
+}

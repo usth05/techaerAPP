@@ -8400,7 +8400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "transparentTitle": "always", "navigationBarTitleText": "", "usingComponents": { "notice": "/components/notice/notice" } }, "pages/recruitment/recruitment": { "navigationBarTitleText": "招聘", "usingComponents": { "uni-list": "/components/uni-list/uni-list", "uni-list-item": "/components/uni-list-item/uni-list-item" } }, "pages/workbench/workbench": { "navigationBarTitleText": "工作台", "usingComponents": {} }, "pages/home/home": { "navigationBarTitleText": "我的", "usingComponents": {} }, "pages/login/login": { "navigationBarTitleText": "登录", "usingComponents": {} }, "pages/register/register": { "navigationBarTitleText": "注册", "usingComponents": {} }, "pages/recruitmentDetail/recruitmentDetail": { "usingComponents": {} }, "pages/reviseUser/reviseUser": { "navigationBarTitleText": "编辑信息", "usingComponents": {} }, "pages/revisePwd/revisePwd": { "navigationBarTitleText": "找回密码", "usingComponents": {} }, "pages/peiyou/peiyou": { "navigationBarTitleText": "培优实验室", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小学阅读吧教师端", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "transparentTitle": "always", "navigationBarTitleText": "" }, "pages/recruitment/recruitment": { "navigationBarTitleText": "招聘" }, "pages/workbench/workbench": { "navigationBarTitleText": "工作台" }, "pages/home/home": { "navigationBarTitleText": "我的" }, "pages/login/login": { "navigationBarTitleText": "登录" }, "pages/register/register": { "navigationBarTitleText": "注册" }, "pages/recruitmentDetail/recruitmentDetail": {}, "pages/reviseUser/reviseUser": { "navigationBarTitleText": "编辑信息" }, "pages/revisePwd/revisePwd": { "navigationBarTitleText": "找回密码" }, "pages/peiyou/peiyou": { "navigationBarTitleText": "培优实验室" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小学阅读吧教师端", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8526,9 +8526,9 @@ function normalizeComponent (
 
 /***/ }),
 /* 15 */
-/*!****************************************************************!*\
-  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/js/config.js ***!
-  \****************************************************************/
+/*!*************************************************************!*\
+  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/config.js ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8590,9 +8590,9 @@ function postDataFormat(obj) {
 
 /***/ }),
 /* 16 */
-/*!*****************************************************************!*\
-  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/js/request.js ***!
-  \*****************************************************************/
+/*!**************************************************************!*\
+  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/request.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8681,14 +8681,11 @@ function postDataFormat(obj) {
 
 
 
-
-
-
-var _index = _interopRequireDefault(__webpack_require__(/*! ../../js_sdk/gangdiedao-uni-axios/index.js */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function uniHttp() {var _succCallback = function _succCallback() {};var _errCallback = function _errCallback() {};var _comCallbac = function _comCallbac() {};};uniHttp.prototype.getJSON = function (url, data, succCallback, errCallback, comCallbac) {var _this = this;var cookies = '';var token = ';';if (typeof succCallback == "function") {this._succCallback = succCallback;} else {this._succCallback = function () {};}if (typeof errCallback == "function") {this._errCallback = errCallback;} else {this._errCallback = function () {};}if (typeof comCallbac == "function") {this._comCallbac = comCallbac;} else {this._comCallbac = function () {};} // console.log(config._serverAddr + url)
+var _index = _interopRequireDefault(__webpack_require__(/*! ../js_sdk/gangdiedao-uni-axios/index.js */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function uniHttp() {var _succCallback = function _succCallback() {};var _errCallback = function _errCallback() {};var _comCallbac = function _comCallbac() {};};uniHttp.prototype.getJSON = function (url, data, succCallback, errCallback, comCallbac) {var _this = this;var cookies = '';var token = ';';if (typeof succCallback == "function") {this._succCallback = succCallback;} else {this._succCallback = function () {};}if (typeof errCallback == "function") {this._errCallback = errCallback;} else {this._errCallback = function () {};}if (typeof comCallbac == "function") {this._comCallbac = comCallbac;} else {this._comCallbac = function () {};} // console.log(config._serverAddr + url)
   // console.log(config.COOKIE_KEY)
-  uni.getStorage({ key: _config.default.COOKIE_KEY, success: function success(res) {cookies = res.data[0];console.log(cookies);} });var header = { 'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': cookies };uni.getStorage({ key: 'token', success: function success(res) {console.log(res);token = res.data;header.token = token;} });console.log(header);setTimeout(function () {uni.request({ url: _config.default._serverAddr + url, //仅为示例，并非真实接口地址。
+  uni.getStorage({ key: _config.default.COOKIE_KEY, success: function success(res) {cookies = res.data[0];} });var header = { 'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': cookies };uni.getStorage({ key: 'token', success: function success(res) {token = res.data;header.token = token;} });setTimeout(function () {uni.request({ url: _config.default._serverAddr + url, //仅为示例，并非真实接口地址。
       method: 'POST', xhrFields: { withCredentials: true }, crossDomain: true, header: header, data: postDataFormat(data), success: function success(res) {_this._succCallback(res);}, fail: function fail(err) {_this._errCallback(err);}, complete: function complete(data) {_this._comCallbac(data);} });}, 200);};function postDataFormat(obj) {if (typeof obj != "object") {console.log("输入的参数必须是对象");return;}var arr = new Array();var i = 0;for (var attr in obj) {arr[i] = encodeURIComponent(attr) + "=" + encodeURIComponent(obj[attr]);i++;}return arr.join("&"); //  }
-} // axios
+} // axios 
 _index.default.defaults.withCredentials = true; /**
                                                  * 请求接口日志记录
                                                  */function _reqlog(req) {if (true) {console.log("请求地址：" + req.url, req.data || req.params);

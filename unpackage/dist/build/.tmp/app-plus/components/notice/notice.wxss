@@ -1,0 +1,25 @@
+
+.laba.data-v-00c88104{
+	width: 40rpx;
+	height: 40rpx;
+}
+.notice.data-v-00c88104{
+	width: 100%;
+	padding:6rpx 22rpx;
+	background: #FFFFFF;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.notice image.data-v-00c88104{
+	margin-right: 10rpx;
+}
+.noticeText.data-v-00c88104 {
+	font-size: 24rpx;
+	max-width: 90%;
+	overflow: hidden;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
+	white-space: nowrap;
+	color: red;
+}
+

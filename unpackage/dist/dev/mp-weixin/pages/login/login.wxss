@@ -1,145 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* @import '../../common/iconfont.css'; */
 .content {
 	padding: 0 20rpx;
 	-webkit-box-sizing: border-box;
@@ -165,6 +24,7 @@
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	z-index: 10;
 }
 .btn-row {
 	margin: 20rpx 10%;
@@ -172,4 +32,7 @@
 .revise::after,.revise::before{
 	height: 0;
 }
+.title {
+	min-width: 13%;
+} 
 
