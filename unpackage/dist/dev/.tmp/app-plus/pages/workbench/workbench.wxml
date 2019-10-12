@@ -1,1 +1,1 @@
-<view>工作台</view>
+<view><view class="typeItem u_f_jsb u_f_ac u_f_fw"><view data-event-opts="{{[['tap',[['goDetail',['peiyou']]]]]}}" class="item" bindtap="__e"><image src="../../static/images/peiyou.png" mode="widthFix"></image></view><view class="item"><image src="../../static/images/evaluation.png" mode="widthFix"></image></view><view class="item"><image src="../../static/images/evaluation.png" mode="widthFix"></image></view></view></view>

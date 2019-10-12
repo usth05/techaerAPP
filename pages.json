@@ -3,59 +3,117 @@
 		{
 			"path": "pages/index/index",
 			"style": {
+				"transparentTitle":"always",
 				"navigationBarTitleText": ""
 			}
 		},
 		{
-			"path":"pages/recruitment/recruitment",
-			"style":{}
+			"path": "pages/recruitment/recruitment",
+			"style": {
+				"navigationBarTitleText": "招聘",
+				"app-plus":{
+					"titleNView":{
+						"titleOverflow":"ellipsis",
+						"buttons":[
+							{
+								"fontSrc":"static/font/iconfont.ttf",
+								"text":"\ue627",
+								"color":"#333333",
+								"fontSize":"40upx"
+							}
+						]
+					}
+				}
+			}
 		},
 		{
-			"path":"pages/workbench/workbench",
-			"style":{}
+			"path": "pages/workbench/workbench",
+			"style": {
+				"navigationBarTitleText": "工作台",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, 
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}, 
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
 		},
 		{
-			"path":"pages/home/home",
-			"style":{}
+			"path": "pages/register/register",
+			"style":{
+				"navigationBarTitleText": "注册"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/recruitmentDetail/recruitmentDetail",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/reviseUser/reviseUser",
+            "style" : {
+				"navigationBarTitleText": "编辑信息"
+			}
+        },
+		{
+		    "path" : "pages/revisePwd/revisePwd",
+		    "style":{
+		    	"navigationBarTitleText": "找回密码"
+		    }
+		}
+        ,{
+            "path" : "pages/peiyou/peiyou",
+            "style" : {
+				"navigationBarTitleText":"培优实验室"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "",
+		"navigationBarTitleText": "小学阅读吧教师端",
 		"navigationBarBackgroundColor": "#FFF",
 		"backgroundColor": "#FFF",
-		"transparentTitle":"always"
+		"app-plus":{
+			"bounce": "none"
+		}
 	},
-	"tabBar":{
-		"color":"#333333",
-		"selectedColor":"#FA6814",
-		"borderStyle":"black",
-		"backgroundColor":"#FFFFFF",
-		"fontSize":"24px",
-		"list":[
-			{
-				"pagePath":"pages/index/index",
-				"text":"首页",
-				"iconPath":"static/images/index.png",
-				"selectedIconPath":"static/images/indexed.png"
+	"tabBar": {
+		"color": "#333333",
+		"selectedColor": "#FA6814",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"fontSize": "24px",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/images/index.png",
+				"selectedIconPath": "static/images/indexed.png"
 			},
 			{
-				"pagePath":"pages/recruitment/recruitment",
-				"text":"招聘", 
-				"iconPath":"static/images/news.png",
-				"selectedIconPath":"static/images/newsed.png"
+				"pagePath": "pages/workbench/workbench",
+				"text": "工作台",
+				"iconPath": "static/images/paper.png",
+				"selectedIconPath": "static/images/papered.png"
 			},
 			{
-				"pagePath":"pages/workbench/workbench",
-				"text":"工作台",
-				"iconPath":"static/images/paper.png",
-				"selectedIconPath":"static/images/papered.png"
+				"pagePath": "pages/recruitment/recruitment",
+				"text": "招聘",
+				"iconPath": "static/images/news.png",
+				"selectedIconPath": "static/images/newsed.png"
 			},
 			{
-				"pagePath":"pages/home/home",
-				"text":"我的",
-				"iconPath":"static/images/home.png",
-				"selectedIconPath":"static/images/homeed.png"
+				"pagePath": "pages/home/home",
+				"text": "我的",
+				"iconPath": "static/images/home.png",
+				"selectedIconPath": "static/images/homeed.png"
 			}
 		]
 	}

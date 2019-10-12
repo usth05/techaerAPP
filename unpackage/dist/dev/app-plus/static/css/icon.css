@@ -1,0 +1,29 @@
+@font-face {font-family: "iconfont1";
+  src: 
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAVIAAsAAAAACbAAAAT6AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqGTIVbATYCJAMUCwwABCAFhG0HSRtoCMgekiRIKAUUSKAAQB9xPPy3fHffzGw5uyndJapU14vOV1HRUV+lAQ7hUDgcQnLQYCzCdCP4+d9Wfy6YiTPNVjboRqGEjYtstG5nCxsvIv8mav//fy6nN58X0PyW5TLH5MsCjAIOaG9fIAEXBWrLsWHs4jKOE+gsqA9d9+xPgUGhjQvEMCIwYIiZlBJaaLV1ztJSE60CrTYtxp4B+OA+P/5B0zCApMqgnTR46MFC55+Df2yNZyozRueVMKc/B5hVZGwChXjMdQ3hfmoTrpMSGudAfq2VpJ+Df1j1w8UfW1cGyFak6fQ/PIosCaIGTTWCyHNl2TmxKQrVq6BBhuqLkEviV2vJuagqe0mHnmhBvIKmWXR/V5YVceixVXd6CgvtFtf07UWbjtd5nut/6FRxjso863mhrd+v+J8cqpLL0es3b9pHPFCanlBKd95oqSiBHaV73/ZS1UBIzVHDVb96pff4d9S7a/S723Ti8dWq6rQsyl7p/o7alWvzWK3mtF14U6Ld+baVdenhzCGTZck60Lxfb7Yv3Yjw7NGlhwH79Cq45AhSfwwU2t+9o3CdsITYsMUX8FuOrQe9o/f2UOvWTXUsuUIcKfWpWmHAvJRe760xs/zN26p7Lk3LRHbwrl9vdi71bSQIRfHX3EAgpRs+VggxQV390hxSZKKKkV0LWghSvRQlsYTgN2R9wsYx36SH5dZnDnX/5pVmprBtZhk+KfGAdmI9sR5t+23/dGtklc8GJ2uLNedfemK+7ZodRt795uq8M58PHLC2F0E3qCPsCeDtuyC/niC3IkZzuf7Iqjf3j6vRuzEEd1vBSquiy9GfffzSZsua9CYMWG98tDC8sNpjbosRPm6l1uXnNSnW9dRZux/MG4RGdq5ZCLUHnd36nnp356DVWeS0Bk1fWm8sX5oGrsNyaUN6W7d8+7EbNlSifU+S77XJvOuasrJyPdiCKTbIFwPRcQcOjLsw/IeJB26Lzj1HxdutVGj7feYwT5frK0Yip3/Yxuykrd1oHb4kWj+X3sa3m3fZN7H7YbuzsPVfjNbaAqp+1Q0zlU3JR+6wvH9U81jwHIxdmdlPu7CdFO674GyLJLZmLZbEEsSexFrk5vftU3NspNZY1GVszWbPKCSmEKVvLYoUNgybMAENRbQoQsVMx5Oy91dKrlj5T8hJxVe/ug7PcLV4EkwB/lecVS7gKwHIn/Fhlc4pNlwCcCO5Nj7r4xvmXb/w+Th7+/8N5v8x+uPhyptIUF/aPt1KSOJPzVDOliBlMlmqGasiur5UVrj0rpJIDFfuDaBKUluHD8w35Yt+dLMPLxNasyEkjXlH1spiiBZyEyq9bai1zqCzodfq3jQJLooRWDcfQJhwEpIx3yCb8Bwt5OdQmfM71CYCh85duLfsLUfE1E3iGJljyeBUMhISk7xhlU1e9VBOmBhnpKjUZfg5KR2Jkk0aNk5me3FJTupjRnqS0FSWeZKXxATZE5zGxeMimZLEKBeSG4ZlOdW2USM+70YNQ2ICTK5IOAwZh0UKmooUESJK4u3WMlPq8UNxBBPFMaQSSonXjyNJi3ROaqKhxjXQXqpkLcq59E6bRNCUTMbjUTyJKIHUEzo4cT0lIqXyB0VxQmQNhVskUtpqhJrxdVUNx9ckrrH4P2+oXa0KDOFIg7RIB2XIBBkDzyWnRJikoJksspyOZ5LhiREAAAA=') format('woff2'),
+}
+
+.iconfont {
+  font-family: "iconfont1" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-laba:before {
+  content: "\e738";
+}
+
+.icon-fenxiang:before {
+  content: "\e6b7";
+}
+
+.icon-wode:before {
+  content: "\e690";
+}
+
+.icon-fanhui:before {
+  content: "\e650";
+}
+

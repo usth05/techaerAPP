@@ -1,8 +1,8 @@
 
-.user  {
-	padding:10rpx 16rpx;
+.user {
+	padding: 10rpx 16rpx;
 }
-.user .userImg{
+.user .userImg {
 	width: 80rpx;
 	height: 80rpx;
 	border: 2rpx solid #FFB400;
@@ -10,11 +10,12 @@
 	overflow: hidden;
 	margin-right: 8rpx;
 }
-.user .userImg image{
+.user .userImg image {
 	width: 80rpx;
 	height: 80rpx;
 }
 .user .userInfo {
+	height: 80rpx;
 	font-size: 28rpx;
 	color: #FFFFFF;
 }

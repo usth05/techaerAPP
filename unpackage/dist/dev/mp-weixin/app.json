@@ -3,15 +3,20 @@
     "pages/index/index",
     "pages/recruitment/recruitment",
     "pages/workbench/workbench",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/recruitmentDetail/recruitmentDetail",
+    "pages/reviseUser/reviseUser",
+    "pages/revisePwd/revisePwd",
+    "pages/peiyou/peiyou"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "小学阅读吧教师端",
     "navigationBarBackgroundColor": "#FFF",
-    "backgroundColor": "#FFF",
-    "transparentTitle": "always"
+    "backgroundColor": "#FFF"
   },
   "tabBar": {
     "color": "#333333",
@@ -27,16 +32,16 @@
         "selectedIconPath": "static/images/indexed.png"
       },
       {
-        "pagePath": "pages/recruitment/recruitment",
-        "text": "招聘",
-        "iconPath": "static/images/news.png",
-        "selectedIconPath": "static/images/newsed.png"
-      },
-      {
         "pagePath": "pages/workbench/workbench",
         "text": "工作台",
         "iconPath": "static/images/paper.png",
         "selectedIconPath": "static/images/papered.png"
+      },
+      {
+        "pagePath": "pages/recruitment/recruitment",
+        "text": "招聘",
+        "iconPath": "static/images/news.png",
+        "selectedIconPath": "static/images/newsed.png"
       },
       {
         "pagePath": "pages/home/home",

@@ -1,22 +1,54 @@
 <template>
 	<view>
-		工作台
+		<view class="typeItem u_f_jsb u_f_ac u_f_fw">
+			<view class="item" @tap="goDetail('peiyou')"><image src="../../static/images/peiyou.png" mode="widthFix"></image></view>
+			<view class="item"><image src="../../static/images/evaluation.png" mode="widthFix"></image></view>
+			<view class="item"><image src="../../static/images/evaluation.png" mode="widthFix"></image></view>
+		</view>
 	</view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
+export default {
+	data() {
+		return {};
+	},
+	methods: {
+		goDetail(type) {
+			let url = '';
+			switch (type) {
+				case 'peiyou':
+					url = '../peiyou/peiyou'
+					break;
+				case 'ceping':
+					url = '../ceping/ceping'
+					break;
+				case '书本':
+					url = '../book/book'
+					break
+				default:
+					break;
 				
 			}
-		},
-		methods: {
-			
+			uni.navigateTo({
+				url: url,
+			});
 		}
 	}
+};
 </script>
 
 <style>
-
+.typeItem {
+	padding: 0 10upx;
+}
+.item {
+	width: 48%;
+	line-height: 0;
+	font-size: 0;
+	margin: 10upx 0;
+}
+.item image {
+	width: 100%;
+}
 </style>

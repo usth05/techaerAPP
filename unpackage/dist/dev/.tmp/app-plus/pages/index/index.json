@@ -1,4 +1,5 @@
 {
+  "transparentTitle": "always",
   "navigationBarTitleText": "",
   "usingComponents": {
     "notice": "/components/notice/notice"

@@ -1,1 +1,1 @@
-<view><image class="qbg" src="{{bgImg}}" mode="widthFix"></image></view>
+<view><uni-list vue-id="1" bind:__l="__l" vue-slots="{{['default']}}"><block wx:for="{{listData}}" wx:for-item="list" wx:for-index="index" wx:key="index"><uni-list-item vue-id="{{('2-'+index)+','+('1')}}" title="{{list.name}}" note="{{list.note}}" data-event-opts="{{[['^click',[['tabList',['$0'],[[['listData','',index]]]]]]]}}" bind:click="__e" bind:__l="__l"></uni-list-item></block></uni-list></view>
