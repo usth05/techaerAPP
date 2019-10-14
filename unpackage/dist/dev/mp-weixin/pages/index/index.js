@@ -178,6 +178,10 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data) {
           _this.user = res.data;
           _this.user.img = '../../static/images/homeed.png';
+        } else {
+          uni.redirectTo({
+            url: '../login/login' });
+
         }
       } });
 

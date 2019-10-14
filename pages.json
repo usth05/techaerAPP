@@ -69,6 +69,16 @@
 			"style": {
 				"navigationBarTitleText": "培优实验室"
 			}
+		}, {
+			"path": "pages/peiyou1/peiyou1",
+			"style": {}
+		}, {
+			"path": "pages/peiyou2/peiyou2",
+			"style": {}
+		},
+		{
+			"path": "pages/peiyou3/peiyou3",
+			"style": {}
 		}
 	],
 	"globalStyle": {

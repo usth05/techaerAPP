@@ -135,7 +135,32 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      user: {},
+      token: '' };
+
+  },
+  onShow: function onShow() {
+    var _this = this;
+    uni.getStorage({
+      key: 'userInfo',
+      success: function success(res) {
+        if (res.data) {
+          _this.user = res.data;
+          _this.user.img = '../../static/images/homeed.png';
+        } else {
+          uni.redirectTo({
+            url: '../login/login' });
+
+        }
+      } });
+
+    uni.getStorage({
+      key: 'token',
+      success: function success(res) {
+        _this.token = res.data;
+      } });
+
   },
   methods: {
     goDetail: function goDetail(type) {
@@ -153,7 +178,7 @@ var _default =
         default:
           break;}
 
-
+      url += '?list=' + JSON.stringify(this.user) + '&token=' + this.token;
       uni.navigateTo({
         url: url });
 

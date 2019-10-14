@@ -5,7 +5,6 @@
 		<!-- #endif -->
 		<uni-list>
 			<uni-list-item :key="index" v-for="(list, index) in listData" @click="tabList(list)" :title="list.name" :note="list.note"></uni-list-item>
-			<!-- <uni-list-item @click="tabList('人事')" title="人事" note="描述信息"></uni-list-item> -->
 		</uni-list>
 	</view>
 </template>

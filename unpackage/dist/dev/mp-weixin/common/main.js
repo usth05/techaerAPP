@@ -104,7 +104,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 {
   onLaunch: function onLaunch() {
     console.log('App Launch');
-    console.log(this.config.webUrl);
   },
   onShow: function onShow() {
     console.log('App Show');

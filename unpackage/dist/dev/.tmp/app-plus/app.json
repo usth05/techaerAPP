@@ -9,7 +9,10 @@
     "pages/recruitmentDetail/recruitmentDetail",
     "pages/reviseUser/reviseUser",
     "pages/revisePwd/revisePwd",
-    "pages/peiyou/peiyou"
+    "pages/peiyou/peiyou",
+    "pages/peiyou1/peiyou1",
+    "pages/peiyou2/peiyou2",
+    "pages/peiyou3/peiyou3"
   ],
   "window": {
     "navigationBarTextStyle": "black",
