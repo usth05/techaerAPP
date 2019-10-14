@@ -19,13 +19,25 @@
 			return {
 				listData: [],
 				user:{},
-				token:''
+				token:'',
+				clockId:-1
 			};
 		},
 		onLoad(e) {
 			this.user = JSON.parse(e.user);
 			this.token = e.token;
-			this.listData = JSON.parse(e.data);
+			this.clockId = e.clockId;
+			let url = 'manageUserUploads/selectHabitClockInfo.json';
+			const data = {
+				clockId:this.clockId,
+				teacherId: this.user.id,
+				token: this.token
+			};
+			this.uniHttp.getJSON(url, data, res => {
+				if (res.data.success) {
+					this.listData = res.data.data;
+				}
+			});
 		},
 		onShow() {
 			console.log(this.user)
@@ -34,19 +46,8 @@
 		methods: {
 			tabList(list){
 				// console.log(list)
-				let url = 'manageUserUploads/selectHabitByMealId.json';
-				const data = {
-					mealId:list.id,
-					teacherId: this.user.id,
-					token: this.token
-				};
-				this.uniHttp.getJSON(url, data, res => {
-					console.log(res)
-					if (res.data.success) {
-						uni.navigateTo({
-							url: '../peiyou3/peiyou3?data='+JSON.stringify(res.data.data)+'&user='+JSON.stringify(this.user)+'&token='+this.token,
-						});
-					}
+				uni.navigateTo({
+					url: '../peiyou3/peiyou3?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&mealId='+list.id
 				});
 			}
 		}

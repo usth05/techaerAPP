@@ -19,13 +19,25 @@
 			return {
 				listData: [],
 				user:{},
-				token:''
+				token:'',
+				typeId:-1,
 			};
 		},
 		onLoad(e) {
 			this.user = JSON.parse(e.user);
 			this.token = e.token;
-			this.listData = JSON.parse(e.data);
+			this.typeId = e.typeId;
+			let url = 'manageUserUploads/selectHabitClock.json';
+			const data = { 
+				typeId: this.typeId,
+				teacherId: this.user.id,
+				token: this.token
+			};
+			this.uniHttp.getJSON(url, data, res => {
+				if (res.data.success) {
+					this.listData = res.data.data;
+				}
+			});
 		},
 		onShow() {
 			console.log(this.user)
@@ -33,19 +45,8 @@
 		},
 		methods: {
 			tabList(list){
-				let url = 'manageUserUploads/selectHabitClockInfo.json';
-				const data = {
-					clockId:list.id,
-					teacherId: this.user.id,
-					token: this.token
-				};
-				this.uniHttp.getJSON(url, data, res => {
-					console.log(res)
-					if (res.data.success) {
-						uni.navigateTo({
-							url: '../peiyou2/peiyou2?data='+JSON.stringify(res.data.data)+'&user='+JSON.stringify(this.user)+'&token='+this.token,
-						});
-					}
+				uni.navigateTo({
+					url: '../peiyou2/peiyou2?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&clockId='+list.id
 				});
 			}
 		}

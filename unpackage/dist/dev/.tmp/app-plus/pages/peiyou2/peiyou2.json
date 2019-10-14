@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "培优实验室",
   "usingComponents": {
     "uni-badge": "/components/uni-badge/uni-badge"
   }

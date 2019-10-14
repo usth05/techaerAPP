@@ -70,22 +70,35 @@
 		{
 			"path": "pages/peiyou/peiyou",
 			"style": {
-				"navigationBarTitleText": "培优实验室"
+				"navigationBarTitleText": "培优实验室",
+				"app-plus":{
+					// "titleNView":false
+				}
 			}
 		},
 		{
 			"path": "pages/peiyou1/peiyou1",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "培优实验室"
+			}
 		},
 		{
 			"path": "pages/peiyou2/peiyou2",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "培优实验室"
+			}
 		},
 		{
 			"path": "pages/peiyou3/peiyou3",
-			"style": {}
+			"style": {
+				"navigationBarTitleText": "要求"
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/peiyouUser/peiyouUser",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小学阅读吧教师端",

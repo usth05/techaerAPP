@@ -141,35 +141,36 @@ __webpack_require__.r(__webpack_exports__);
     return {
       listData: [],
       user: {},
-      token: '' };
+      token: '',
+      mealId: -1 };
 
   },
-  onLoad: function onLoad(e) {
+  onLoad: function onLoad(e) {var _this = this;
     this.user = JSON.parse(e.user);
     this.token = e.token;
-    this.listData = JSON.parse(e.data);
-  },
-  onShow: function onShow() {
-    console.log(this.user);
-    console.log(this.token);
+    this.mealId = e.mealId;
+    var url = 'manageUserUploads/selectHabitByMealId.json';
+    var data = {
+      mealId: this.mealId,
+      teacherId: this.user.id,
+      token: this.token };
+
+    this.uniHttp.getJSON(url, data, function (res) {
+      console.log(res);
+      if (res.data.success) {
+        _this.listData = res.data.data;
+      }
+    });
   },
   methods: {
-    tabList: function tabList(list) {var _this = this;
-      // console.log(list)
-      var url = 'manageUserUploads/selectHabitByMealId.json';
-      var data = {
-        mealId: list.id,
-        teacherId: this.user.id,
-        token: this.token };
+    tabList: function tabList(list) {
+      console.log(list);
+      // uni.navigateTo({
+      // 	url: '../peiyouUser/peiyouUser?user='+JSON.stringify(this.user)+'&token='+this.token+'&typeId='+list.id,
+      // });
+      uni.redirectTo({
+        url: '../peiyouUser/peiyouUser?user=' + JSON.stringify(this.user) + '&token=' + this.token + '&typeId=' + list.id });
 
-      this.uniHttp.getJSON(url, data, function (res) {
-        console.log(res);
-        if (res.data.success) {
-          uni.navigateTo({
-            url: '../peiyou3/peiyou3?data=' + JSON.stringify(res.data.data) + '&user=' + JSON.stringify(_this.user) + '&token=' + _this.token });
-
-        }
-      });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

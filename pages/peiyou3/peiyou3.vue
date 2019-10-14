@@ -19,34 +19,35 @@
 			return {
 				listData: [],
 				user:{},
-				token:''
+				token:'',
+				mealId:-1,
 			};
 		},
 		onLoad(e) {
 			this.user = JSON.parse(e.user);
 			this.token = e.token;
-			this.listData = JSON.parse(e.data);
-		},
-		onShow() {
-			console.log(this.user)
-			console.log(this.token)
+			this.mealId = e.mealId;
+			let url = 'manageUserUploads/selectHabitByMealId.json';
+			const data = {
+				mealId:this.mealId,
+				teacherId: this.user.id,
+				token: this.token
+			};
+			this.uniHttp.getJSON(url, data, res => {
+				console.log(res)
+				if (res.data.success) {
+					this.listData = res.data.data;
+				}
+			});
 		},
 		methods: {
 			tabList(list){
-				// console.log(list)
-				let url = 'manageUserUploads/selectHabitByMealId.json';
-				const data = {
-					mealId:list.id,
-					teacherId: this.user.id,
-					token: this.token
-				};
-				this.uniHttp.getJSON(url, data, res => {
-					console.log(res)
-					if (res.data.success) {
-						uni.navigateTo({
-							url: '../peiyou3/peiyou3?data='+JSON.stringify(res.data.data)+'&user='+JSON.stringify(this.user)+'&token='+this.token,
-						});
-					}
+				console.log(list)
+				// uni.navigateTo({
+				// 	url: '../peiyouUser/peiyouUser?user='+JSON.stringify(this.user)+'&token='+this.token+'&typeId='+list.id,
+				// });
+				uni.redirectTo({
+				   url: '../peiyouUser/peiyouUser?user='+JSON.stringify(this.user)+'&token='+this.token+'&typeId='+list.id,
 				});
 			}
 		}

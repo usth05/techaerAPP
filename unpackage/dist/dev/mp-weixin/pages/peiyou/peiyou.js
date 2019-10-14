@@ -122,7 +122,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniBadge = function uniBadge() {return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 152));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniBadge = function uniBadge() {return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 152));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 191));};var _default =
+
+
 
 
 
@@ -149,7 +151,8 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   components: {
-    uniBadge: uniBadge },
+    uniBadge: uniBadge,
+    uniNavBar: uniNavBar },
 
   data: function data() {
     return {
@@ -177,22 +180,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    tabList: function tabList(list) {var _this2 = this;
-      var url = 'manageUserUploads/selectHabitClock.json';
-      var data = {
-        typeId: list.id,
-        teacherId: this.user.id,
-        token: this.token };
-
-      this.uniHttp.getJSON(url, data, function (res) {
-        if (res.data.success) {
-          uni.navigateTo({
-            url: '../peiyou1/peiyou1?data=' + JSON.stringify(res.data.data) + '&user=' + JSON.stringify(_this2.user) + '&token=' + _this2.token });
-
-        }
-      });
-    },
-    bindPickerChange: function bindPickerChange() {
+    tabList: function tabList(list) {
+      uni.navigateTo({
+        url: '../peiyou1/peiyou1?user=' + JSON.stringify(this.user) + '&token=' + this.token + '&typeId=' + list.id });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

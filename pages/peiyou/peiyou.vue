@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="uni-list">
+		<!-- <view class="uni-list">
 			<view class="uni-list-cell">
 				<view class="uni-list-cell-left">请选择分类</view>
 				<view class="uni-list-cell-db">
@@ -9,7 +9,8 @@
 					</picker>
 				</view>
 			</view>
-		</view>
+		</view> -->
+		
 		<view class="uni-list">
 			<view class="uni-list-cell" :key="index" @tap="tabList(list)" v-for="(list, index) in listData">
 				<view class="uni-list-cell-navigate">
@@ -23,9 +24,11 @@
 
 <script>
 import uniBadge from '@/components/uni-badge/uni-badge.vue';
+import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 export default {
 	components: {
-		uniBadge
+		uniBadge,
+		uniNavBar
 	},
 	data() {
 		return {
@@ -54,22 +57,9 @@ export default {
 	},
 	methods: {
 		tabList(list) {
-			let url = 'manageUserUploads/selectHabitClock.json';
-			const data = {
-				typeId: list.id,
-				teacherId: this.user.id,
-				token: this.token
-			};
-			this.uniHttp.getJSON(url, data, res => {
-				if (res.data.success) {
-					uni.navigateTo({
-						url: '../peiyou1/peiyou1?data=' + JSON.stringify(res.data.data) + '&user=' + JSON.stringify(this.user) + '&token=' + this.token
-					});
-				}
+			uni.navigateTo({
+				url: '../peiyou1/peiyou1?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&typeId='+list.id
 			});
-		},
-		bindPickerChange(){
-			
 		}
 	}
 };
