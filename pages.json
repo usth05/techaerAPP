@@ -50,10 +50,12 @@
 			"style": {
 				"navigationBarTitleText": "注册"
 			}
-		}, {
+		},
+		{
 			"path": "pages/recruitmentDetail/recruitmentDetail",
 			"style": {}
-		}, {
+		},
+		{
 			"path": "pages/reviseUser/reviseUser",
 			"style": {
 				"navigationBarTitleText": "编辑信息"
@@ -64,15 +66,18 @@
 			"style": {
 				"navigationBarTitleText": "找回密码"
 			}
-		}, {
+		},
+		{
 			"path": "pages/peiyou/peiyou",
 			"style": {
 				"navigationBarTitleText": "培优实验室"
 			}
-		}, {
+		},
+		{
 			"path": "pages/peiyou1/peiyou1",
 			"style": {}
-		}, {
+		},
+		{
 			"path": "pages/peiyou2/peiyou2",
 			"style": {}
 		},

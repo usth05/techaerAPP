@@ -1,1 +1,2 @@
+setCssToHead([".",[1],"navBar { width: 90%; font-size: ",[0,28],"; }\n",],undefined,{path:"./pages/peiyou/peiyou.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/peiyou/peiyou.wxml') } }));
