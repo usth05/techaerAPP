@@ -120,40 +120,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniBadge = function uniBadge() {return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 152));};var _default =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniBadge = function uniBadge() {return __webpack_require__.e(/*! import() | components/uni-badge/uni-badge */ "components/uni-badge/uni-badge").then(__webpack_require__.bind(null, /*! @/components/uni-badge/uni-badge.vue */ 152));};var _default =
 
 
 
@@ -172,118 +139,47 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   components: { uniBadge: uniBadge },
   data: function data() {
     return {
+      listData: [],
       user: {},
-      token: '',
-      oneData: {
-        //1级分类的数据
-        index: 0, //1级分类的选中项
-        data: [], //1级分类的数据
-        nameArr: ['请选择'], //1级分类的名称
-        newCount: 0 //1级分类的数量
-      },
-      twoData: {
-        //1级分类的数据
-        index: 0, //1级分类的选中项
-        data: [], //1级分类的数据
-        nameArr: ['请选择'], //1级分类的名称
-        newCount: 0 //1级分类的数量
-      },
-      threeData: {
-        //1级分类的数据
-        index: 0, //1级分类的选中项
-        data: [], //1级分类的数据
-        nameArr: ['请选择'], //1级分类的名称
-        newCount: 0 //1级分类的数量
-      } };
+      token: '' };
 
   },
   onLoad: function onLoad(e) {
     this.user = JSON.parse(e.list);
     this.token = e.token;
   },
-  onShow: function onShow() {
-    this.tabList('one');
+  onShow: function onShow() {var _this = this;
+    var url = 'manageUserUploads/selectHabit.json';
+    var data = {
+      teacherId: this.user.id,
+      token: this.token };
+
+    this.uniHttp.getJSON(url, data, function (res) {
+      console.log(res.data);
+      if (res.data.success) {
+        _this.listData = res.data.data;
+      }
+    });
   },
   methods: {
-    tabList: function tabList(type) {var _this = this;
-      var url = '';
+    tabList: function tabList(list) {var _this2 = this;
+      console.log(list);
+      var url = 'manageUserUploads/selectHabitClock.json';
       var data = {
+        typeId: list.id,
         teacherId: this.user.id,
         token: this.token };
 
-      var typeN = type + 'Data';
-      if (type == 'one') {
-        url = 'manageUserUploads/selectHabit.json';
-      } else if (type == 'two') {
-        url = 'manageUserUploads/selectHabitClock.json';
-        var index = this.oneData.index;
-        console.log(index);
-        console.log(this.oneData.data[index]);
-        data.typeId = this.oneData.data[index - 1].id;
-      } else if (type == 'three') {
-        url = 'manageUserUploads/selectHabitClockInfo.json';
-        var _index = this.twoData.index;
-        data.clockId = this.twoData.data[_index - 1].id;
-      }
       this.uniHttp.getJSON(url, data, function (res) {
         console.log(res);
         if (res.data.success) {
-          var myData = res.data.data;
-          _this[typeN].data = myData;
-          _this[typeN].nameArr = ['请选择'];
-          for (var i = 0; i < myData.length; i++) {
-            _this[typeN].nameArr.push(myData[i].name);
-          }
-          _this[typeN].newCount = myData.newCount;
-          _this[typeN].index = 0;
+          uni.navigateTo({
+            url: '../peiyou1/peiyou1?data=' + JSON.stringify(res.data.data) + '&user=' + JSON.stringify(_this2.user) + '&token=' + _this2.token });
+
         }
       });
-    },
-    bindPickerOneChange: function bindPickerOneChange(e) {
-      if (e.target.value != this.oneData.oneindex) {
-        this.oneData.index = parseInt(e.target.value);
-        console.log(this.oneData.index);
-        if (this.oneData.index > 0) {
-          this.tabList('two');
-        } else {
-          this.twoData = {
-            //1级分类的数据
-            index: 0, //1级分类的选中项
-            data: [], //1级分类的数据
-            nameArr: ['请选择'], //1级分类的名称
-            newCount: 0 //1级分类的数量
-          };
-          this.threeData = {
-            //1级分类的数据
-            index: 0, //1级分类的选中项
-            data: [], //1级分类的数据
-            nameArr: ['请选择'], //1级分类的名称
-            newCount: 0 //1级分类的数量
-          };
-        }
-      }
-    },
-    bindPickerTwoChange: function bindPickerTwoChange(e) {
-      if (e.target.value != this.oneData.oneindex) {
-        this.twoData.index = parseInt(e.target.value);
-        if (this.oneData.index > 0) {
-          this.tabList('three');
-        } else {
-          this.threeData = {
-            //1级分类的数据
-            index: 0, //1级分类的选中项
-            data: [], //1级分类的数据
-            nameArr: ['请选择'], //1级分类的名称
-            newCount: 0 //1级分类的数量
-          };
-        }
-      }
-    },
-    bindPickerThreeChange: function bindPickerThreeChange(e) {
-      if (e.target.value != this.oneData.oneindex) {
-        this.threeData.index = parseInt(e.target.value);
-      }
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 
