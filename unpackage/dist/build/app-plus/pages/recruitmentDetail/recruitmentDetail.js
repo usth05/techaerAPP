@@ -1,0 +1,2 @@
+setCssToHead(["wx-image{ width: 100%; }\n",],undefined,{path:"./pages/recruitmentDetail/recruitmentDetail.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/recruitmentDetail/recruitmentDetail.wxml') } }));

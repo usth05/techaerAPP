@@ -1,0 +1,6 @@
+
+.navBar {
+	width: 90%;
+	font-size: 28rpx;
+}
+

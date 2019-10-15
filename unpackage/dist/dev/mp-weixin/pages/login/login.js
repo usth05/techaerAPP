@@ -205,7 +205,6 @@ var _default =
       data,
       function (res) {
         if (res.data.success) {
-          console.log(res);
           uni.setStorage({
             key: 'token',
             data: res.data.data.token,
@@ -219,14 +218,10 @@ var _default =
                 id: res.data.data.id };
 
               _this.uniHttp.getJSON('teacherUser/selectTeacherUser.json', data, function (suc) {
-                console.log(suc);
                 uni.setStorage({
                   key: 'userInfo',
                   data: suc.data.data,
                   success: function success() {
-                    // uni.redirectTo({
-                    // 	url: '../home/home'
-                    // });
                     uni.switchTab({
                       url: '/pages/home/home' });
 
@@ -237,13 +232,18 @@ var _default =
 
         } else {
           uni.showToast({
-            title: res.data.msg,
+            title: res.data.data.msg,
             icon: 'none',
             duration: 2000 });
 
         }
       },
       function (err) {
+        uni.showToast({
+          title: err.data.data.msg,
+          icon: 'none',
+          duration: 2000 });
+
         console.log(err);
       });
 

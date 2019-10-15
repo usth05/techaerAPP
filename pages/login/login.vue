@@ -81,7 +81,6 @@ export default {
 				data,
 				res => {
 					if (res.data.success) {
-						console.log(res);
 						uni.setStorage({
 							key: 'token',
 							data: res.data.data.token,
@@ -95,14 +94,10 @@ export default {
 									id:res.data.data.id
 								}
 								_this.uniHttp.getJSON('teacherUser/selectTeacherUser.json',data,suc=>{
-									console.log(suc)
 									uni.setStorage({
 										key: 'userInfo',
 										data: suc.data.data,
 										success: function() {
-											// uni.redirectTo({
-											// 	url: '../home/home'
-											// });
 											uni.switchTab({
 											    url: '/pages/home/home'
 											});
@@ -113,13 +108,18 @@ export default {
 						});
 					}else{
 						uni.showToast({
-							title: res.data.msg,
+							title: res.data.data.msg,
 							icon: 'none',
 							duration: 2000
 						});
 					}
 				},
 				err => {
+					uni.showToast({
+						title: err.data.data.msg,
+						icon: 'none',
+						duration: 2000
+					});
 					console.log(err);
 				}
 			);
@@ -139,7 +139,6 @@ export default {
 </script>
 
 <style>
-/* @import '../../common/iconfont.css'; */
 .content {
 	padding: 0 20upx;
 	box-sizing: border-box;
@@ -167,6 +166,7 @@ export default {
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	z-index: 10;
 }
 
 .btn-row {
@@ -175,4 +175,7 @@ export default {
 .revise::after,.revise::before{
 	height: 0;
 }
+.title {
+	min-width: 13%; 
+} 
 </style>

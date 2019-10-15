@@ -323,6 +323,7 @@ export default {
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	z-index: 10;
 }
 
 .btn-row {
@@ -333,4 +334,7 @@ export default {
 	position: absolute;
 	right: 5upx;
 }
+.title {
+	min-width: 20%; 
+} 
 </style>

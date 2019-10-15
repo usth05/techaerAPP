@@ -122,14 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var notice = function notice() {return __webpack_require__.e(/*! import() | components/notice/notice */ "components/notice/notice").then(__webpack_require__.bind(null, /*! ../../components/notice/notice.vue */ 118));};var _default =
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var notice = function notice() {return __webpack_require__.e(/*! import() | components/notice/notice */ "components/notice/notice").then(__webpack_require__.bind(null, /*! ../../components/notice/notice.vue */ 152));};var _default =
 
 
 
@@ -160,8 +153,8 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
-      bgImg: "../../static/images/pyinit.png",
-      notice: "十月1日至十月7日放假,十月1日至十月7日放假,十月1日至十月7日放假,十月1日至十月7日放假",
+      bgImg: '../../static/images/pyinit.png',
+      notice: '十月1日至十月7日放假,十月1日至十月7日放假,十月1日至十月7日放假,十月1日至十月7日放假',
       audio: '',
       user: {
         realName: '',
@@ -178,7 +171,19 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data) {
           _this.user = res.data;
           _this.user.img = '../../static/images/homeed.png';
+        } else {
+          uni.redirectTo({
+            url: '../login/login' });
+
         }
+      },
+      fail: function fail(err) {
+        uni.redirectTo({
+          url: '../login/login' });
+
+      },
+      complete: function complete(data) {
+        console.log(data);
       } });
 
   },

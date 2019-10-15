@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "要求",
+  "usingComponents": {
+    "uni-badge": "/components/uni-badge/uni-badge"
+  }
+}

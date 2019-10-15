@@ -240,6 +240,7 @@
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	z-index: 10;
 }
 .btn-row {
 	margin: 20rpx 10%;
@@ -249,4 +250,7 @@
 	position: absolute;
 	right: 5rpx;
 }
+.title {
+	min-width: 20%;
+} 
 

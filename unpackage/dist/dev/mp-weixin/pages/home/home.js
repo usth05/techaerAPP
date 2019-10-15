@@ -209,6 +209,10 @@ var _default =
         if (res.data) {
           _this.user = res.data;
           _this.user.img = '../../static/images/homeed.png';
+        } else {
+          uni.redirectTo({
+            url: '../login/login' });
+
         }
       } });
 

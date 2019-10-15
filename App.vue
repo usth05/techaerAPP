@@ -2,7 +2,6 @@
 export default {
 	onLaunch: function() {
 		console.log('App Launch');
-		console.log(this.config.webUrl);
 	},
 	onShow: function() {
 		console.log('App Show');
@@ -15,10 +14,11 @@ export default {
 
 <style>
 /* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
-@import './common/css/uni.css';
+@import './common/uni.css';
 /* 引入动画库 */
-@import './common/css/animate.css';
-@import './common/css/iconfont.css';
+@import './common/animate.css';
+/* 引入自定义图标 */
+@import './common/iconfont.css';
 /*每个页面公共css */
 .status_bar {
 	height: var(--status-bar-height);
