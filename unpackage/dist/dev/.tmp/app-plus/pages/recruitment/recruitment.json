@@ -4,10 +4,11 @@
     "titleOverflow": "ellipsis",
     "buttons": [
       {
-        "fontSrc": "static/font/icon.ttf",
+        "fontSrc": "static/font/iconfont.ttf",
         "text": "",
         "color": "#333333",
-        "fontSize": "40upx"
+        "fontSize": "40upx",
+        "float": "right"
       }
     ]
   },

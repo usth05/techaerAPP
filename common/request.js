@@ -1,5 +1,6 @@
 import config from "./config.js"
-
+import imgOss from "./imgOss.js"
+import audioOss from "/common/audioOss.js"
 function uniHttp() {
 	var _succCallback = function() {};
 	var _errCallback = function() {};
@@ -65,7 +66,11 @@ uniHttp.prototype.getJSON = function(url, data, succCallback, errCallback, comCa
 		});
 	}, 200)
 }
-
+uniHttp.prototype.getParamA = imgOss.getParamA
+uniHttp.prototype.resizeA = imgOss.resizeA
+uniHttp.prototype.appendFileA = imgOss.appendFileA
+uniHttp.prototype.resize = audioOss.resizeA
+uniHttp.prototype.appendFile = audioOss.appendFileA
 function postDataFormat(obj) {
 	if (typeof obj != "object") {
 		console.log("输入的参数必须是对象");
@@ -125,6 +130,7 @@ http.interceptors.response.use(response => {
 	// code...
 })
 
+// 获取伤处权限
 export default {
 	uniHttp,
 	http,

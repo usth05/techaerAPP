@@ -1,16 +1,5 @@
 <template>
 	<view>
-		<!-- <view class="uni-list">
-			<view class="uni-list-cell">
-				<view class="uni-list-cell-left">请选择分类</view>
-				<view class="uni-list-cell-db">
-					<picker @change="bindPickerChange" :value="index" :range="selectData">
-						<view class="uni-input">{{ selectData[index] }}</view>
-					</picker>
-				</view>
-			</view>
-		</view> -->
-		
 		<view class="uni-list">
 			<view class="uni-list-cell" :key="index" @tap="tabList(list)" v-for="(list, index) in listData">
 				<view class="uni-list-cell-navigate">

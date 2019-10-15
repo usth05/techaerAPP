@@ -1,0 +1,17 @@
+{
+  "titleNView": {
+    "titleOverflow": "ellipsis",
+    "buttons": [
+      {
+        "fontSrc": "static/font/iconfont.ttf",
+        "text": "发布",
+        "color": "#333333",
+        "fontSize": "28upx",
+        "float": "right"
+      }
+    ]
+  },
+  "usingComponents": {
+    "uni-card": "/components/uni-card/uni-card"
+  }
+}

@@ -108,13 +108,18 @@ export default {
 						});
 					}else{
 						uni.showToast({
-							title: res.data.msg,
+							title: res.data.data.msg,
 							icon: 'none',
 							duration: 2000
 						});
 					}
 				},
 				err => {
+					uni.showToast({
+						title: err.data.data.msg,
+						icon: 'none',
+						duration: 2000
+					});
 					console.log(err);
 				}
 			);

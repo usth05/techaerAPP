@@ -13,7 +13,9 @@
     "pages/peiyou1/peiyou1",
     "pages/peiyou2/peiyou2",
     "pages/peiyou3/peiyou3",
-    "pages/peiyouUser/peiyouUser"
+    "pages/peiyouUser/peiyouUser",
+    "pages/release/release",
+    "pages/peiyoucorrect/peiyoucorrect"
   ],
   "window": {
     "navigationBarTextStyle": "black",

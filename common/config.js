@@ -1,6 +1,7 @@
 const _serverAddrImg = "http://47.98.249.149:8020/readbaoss/"; //查看线上服务器图片地址
-const _serverAddr = "http://192.168.1.108:8080/zhijian-app-web/"; //本地服务器地址
 // const _serverAddr = "http://47.98.249.149:8020/readba/"; //线上服务器地址
+const _serverAddr = "http://192.168.1.108:8080/zhijian-app-web/"; //本地服务器地址
+
 
 // cookie 的本地存储位置
 const COOKIE_KEY = '__cookie_key__';

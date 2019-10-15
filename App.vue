@@ -17,7 +17,8 @@ export default {
 @import './common/uni.css';
 /* 引入动画库 */
 @import './common/animate.css';
-@import './common/icon.css';
+/* 引入自定义图标 */
+@import './common/iconfont.css';
 /*每个页面公共css */
 .status_bar {
 	height: var(--status-bar-height);

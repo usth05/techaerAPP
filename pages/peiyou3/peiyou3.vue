@@ -34,7 +34,6 @@
 				token: this.token
 			};
 			this.uniHttp.getJSON(url, data, res => {
-				console.log(res)
 				if (res.data.success) {
 					this.listData = res.data.data;
 				}
@@ -42,10 +41,6 @@
 		},
 		methods: {
 			tabList(list){
-				console.log(list)
-				// uni.navigateTo({
-				// 	url: '../peiyouUser/peiyouUser?user='+JSON.stringify(this.user)+'&token='+this.token+'&typeId='+list.id,
-				// });
 				uni.redirectTo({
 				   url: '../peiyouUser/peiyouUser?user='+JSON.stringify(this.user)+'&token='+this.token+'&typeId='+list.id,
 				});

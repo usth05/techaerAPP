@@ -39,14 +39,10 @@
 				}
 			});
 		},
-		onShow() {
-			console.log(this.user)
-			console.log(this.token)
-		},
 		methods: {
 			tabList(list){
 				// console.log(list)
-				uni.navigateTo({
+				uni.redirectTo({
 					url: '../peiyou3/peiyou3?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&mealId='+list.id
 				});
 			}

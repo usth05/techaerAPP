@@ -15,10 +15,11 @@
 					"titleNView": {
 						"titleOverflow": "ellipsis",
 						"buttons": [{
-							"fontSrc": "static/font/icon.ttf",
+							"fontSrc": "static/font/iconfont.ttf",
 							"text": "\ue6ab",
 							"color": "#333333",
-							"fontSize": "40upx"
+							"fontSize": "40upx",
+							"float": "right"
 						}]
 					}
 				}
@@ -71,7 +72,7 @@
 			"path": "pages/peiyou/peiyou",
 			"style": {
 				"navigationBarTitleText": "培优实验室",
-				"app-plus":{
+				"app-plus": {
 					// "titleNView":false
 				}
 			}
@@ -93,12 +94,32 @@
 			"style": {
 				"navigationBarTitleText": "要求"
 			}
+		}, {
+			"path": "pages/peiyouUser/peiyouUser",
+			"style": {}
+		}, {
+			"path": "pages/release/release",
+			"style": {}
+		},
+		{
+			"path": "pages/peiyoucorrect/peiyoucorrect",
+			"style": {
+				"app-plus": {
+					"titleNView": {
+						"titleOverflow": "ellipsis",
+						"buttons": [{
+							"fontSrc": "static/font/iconfont.ttf",
+							// "text": "\ue661",
+							"text": "发布",
+							"color": "#333333",
+							"fontSize": "28upx",
+							"float": "right"
+						}]
+					}
+				}
+			}
 		}
-	    ,{
-            "path" : "pages/peiyouUser/peiyouUser",
-            "style" : {}
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "小学阅读吧教师端",
