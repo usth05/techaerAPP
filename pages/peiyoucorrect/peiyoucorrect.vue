@@ -125,7 +125,7 @@ export default {
 			correctionType: 0, //上传的模式
 			name: '', //上传的标题
 			imageUrl: '', //封面地址
-			dataUrl:'',//上传的地址
+			dataUrl: '', //上传的地址
 			videoUrl: '', //视频地址
 			imgArr: [], //上传的图片数组
 			isPrompt: false, //是否显示提示框
@@ -139,9 +139,9 @@ export default {
 	onLoad(e) {
 		let self = this;
 		const param = {
-			hz: 'content', //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
-		}
-		this.uniHttp.getParamA(param);
+			hz: 'content' //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
+		};
+		this.$imgOss.getParam(param);
 		recorderManager.onStop(function(res) {
 			console.log(res);
 			self.voicePath = res.tempFilePath;
@@ -208,43 +208,45 @@ export default {
 			}
 		});
 	},
-	onNavigationBarButtonTap(e){
+	onNavigationBarButtonTap(e) {
 		console.log(e);
-		if(e.index==0){
+		if (e.index == 0) {
 			this.send();
 		}
 	},
 	methods: {
 		// 上传批改
-		send(){
-			if(this.correctionType==0){
-				this.uniHttp.appendFileA(this.imgArr[0]);
+		send() {
+			if (this.correctionType == 0) {
+				console.log('run');
+				// this.uniHttp.appendFileA();
+				this.$imgOss.getJSON(this.imgArr[0], (res, status, url) => {
+					console.log(status);
+					console.log(url);
+				});
 			}
 			let url = 'manageHabit/insertHabitCorrection.json';
 			const data = {
 				userDictationaId: this.userDictationaId,
 				token: this.token,
 				enable: 1,
-				name:this.name,
-				photoUrl:this.imageUrl,
-				videoUrl:this.dataUrl,
-				correctionType:this.correctionType,
+				name: this.name,
+				photoUrl: this.imageUrl,
+				videoUrl: this.dataUrl,
+				correctionType: this.correctionType
 			};
 			return;
 			this.uniHttp.getJSON(url, data, res => {
 				if (res.data.success) {
-					
 				}
-			})
+			});
 		},
-		getParamA(type){
+		getParamA(type) {
 			let url = 'practice/uploadOss.json';
 			const data = {
-				hz:type,
-			}
-			this.uniHttp.imgOss(url,data,res=>{
-				
-			})
+				hz: type
+			};
+			this.uniHttp.imgOss(url, data, res => {});
 		},
 		videoErrorCallback() {},
 		record(type) {

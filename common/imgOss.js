@@ -15,7 +15,7 @@ let policyBase64 = "";
 let message = policyBase64;
 
 let signature = "";
-
+// 获取阿里云OSS地址，AccessKeyId和AccessKeySecret
 function getParamA(data) {
 	let _this = this;
 	const header = {
@@ -31,7 +31,6 @@ function getParamA(data) {
 		header: header,
 		data: data,
 		success: (res) => {
-			console.log(res)
 			if (res.data.success) {
 				OSSAccessKeyId = res.data.data.accessid;
 				AccessKeySecret = res.data.data.accessKey;
@@ -52,34 +51,57 @@ function getParamA(data) {
 	});
 }
 
-function upimgA() {
-	console.log(JSON.stringify(files))
+function uniImgOss() {
+	var _succCallback = function() {};
+	var _errCallback = function() {};
+};
+uniImgOss.prototype.getParam = getParamA;
+uniImgOss.prototype.getJSON = function(url, succCallback, errCallback) {
+	let _this = this;
+	let n = url.substr(url.lastIndexOf('/') + 1);
+	fname = n;
+	files.unshift({
+		name: "uploadkey" + index,
+		path: url
+	});
+	index++;
+	if (typeof(succCallback) == "function") {
+		this._succCallback = succCallback;
+	} else {
+		this._succCallback = function() {};
+	}
+	if (typeof(errCallback) == "function") {
+		this._errCallback = errCallback;
+	} else {
+		this._errCallback = function() {};
+	}
 	if (files.length <= 0) {
-		
+		plus.nativeUI.alert("没有添加上传文件！");
 		return;
 	}
-	let suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
-	let keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
-	testName = keyname;
-	const data = {
-		key: keyname,
-		policy: policyBase64,
-		OSSAccessKeyId: OSSAccessKeyId,
-		success_action_status: "200",
-		signature: signature,
-	}
-	let f = files[0];
-	console.log(f)
-	console.log(data)
-	uni.uploadFile({
-		url: server, //仅为示例，非真实的接口地址
-		filePath: f.path,
-		name: keyname,
-		formData: data,
-		success: (uploadFileRes) => {
-			console.log(uploadFileRes);
-		}
+	var task = plus.uploader.createUpload(server, {
+		method: "POST",
+	}, function(t, status) { //上传完成
+		_this._succCallback(t, status, testName)
 	});
+	var suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
+	var keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
+
+	testName = keyname;
+
+	//按照之前说明的参数类型，按顺序添加参数
+	task.addData("key", keyname);
+	task.addData("policy", policyBase64);
+	task.addData("OSSAccessKeyId", OSSAccessKeyId);
+	task.addData("success_action_status", "200");
+	task.addData("signature", signature);
+	var f = files[0];
+	task.addFile(f.path, {
+		key: "file",
+		name: "file",
+		mime: "image/jpg"
+	});
+	task.start();
 }
 
 //得到文件名的后缀
@@ -94,19 +116,11 @@ function get_suffixA(filename) {
 // 添加文件
 let index = 1;
 
-function appendFileA(p) {
-	let n = p.substr(p.lastIndexOf('/') + 1);
-	fname = n;
-	files.unshift({
-		name: "uploadkey" + index,
-		path: p
-	});
-	index++;
-	upimgA();
-}
 //获取上传路径
 function getUploadPathA() {
-	let NowDate = nowTime.getFullYear() + ((nowTime.getMonth() + 1) < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime.getDate() <
+	console.log(nowTime)
+	let NowDate = nowTime.getFullYear() + ((nowTime.getMonth() + 1) < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime
+		.getDate() <
 		10 ? "0" : "") + nowTime.getDate();
 	let uploadeUrl = "/" + NowDate + "/";
 	return uploadeUrl;
@@ -124,8 +138,5 @@ function resizeA(src) {
 	})
 }
 export default {
-	getParamA,
-	appendFileA,
-	upimgA,
-	resizeA
+	uniImgOss
 }
