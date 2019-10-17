@@ -1,21 +1,18 @@
 <template>
 	<view>
 		<scroll-view id="scroll" scroll-y="true">
-			<button type="primary" @tap="send()">发布</button>
+			<!-- <button type="primary" @tap="send()">发布</button> -->
 			<view id="video" v-if="isLook">
 				<view class="icon iconfont icon-guanbi close" @tap="close()"></view>
-				<view id="myVideo"><video :src="lookObj.video" @error="videoErrorCallback" controls direction="-90" :poster="lookObj.img"></video></view>
+				<view id="myVideo"><video :src="lookObj.video" controls direction="-90" :poster="lookObj.img"></video></view>
 			</view>
 			<view :class="{ isLook: isLook }">
 				<block v-for="(list, index) in listData" :key="index">
 					<view class="card" :class="{ first: index == 0 }">
 						<view class="headCard u_f_jfs u_f u_f_ac">
-							<view class="imgBox"><image :src="list.imageUrl" mode="widthFix"></image></view>
 							<view class="title">
-								<view class="">昵称:{{ list.nickName }}</view>
-								<view class="">账号:{{ list.account }}</view>
+								<view class="">名称:{{ list.name }}</view>
 							</view>
-							<view class="rightBox u_f_jc u_f u_f_ac"><view class="pi">批</view></view>
 						</view>
 						<view class="contentCard u_f_jc u_f u_f_ac u_f_fw" v-if="list.correctionType == 0">
 							<view class="imgBox u_f_jsb u_f u_f_ac">
@@ -40,7 +37,8 @@
 				<view id="releaseBox">
 					<!-- 图片上传 -->
 					<view class="releaseTitle">
-						<text>标题</text>
+						<text v-if="!isRevise">名称</text>
+						<text v-else>修改名称</text>
 						<input type="text" v-model="name" placeholder="请输入标题" />
 					</view>
 					<view class="u_f_jfs u_f_ac" v-if="correctionType == 0">
@@ -86,6 +84,7 @@
 						<view v-show="videoUrl == ''" class="icon iconfont icon-zengjia imgAdd" @tap="uploadVideo()"></view>
 					</view>
 				</view>
+				<view style="width: 100%;height: 100upx;"></view>
 				<view class="typeBar u_f u_f_jsb u_f_ac">
 					<view :class="{ active: correctionType == 0 }" @tap="tapPrompt(0)">图片</view>
 					<view :class="{ active: correctionType == 1 }" @tap="tapPrompt(1)">音频</view>
@@ -127,13 +126,14 @@ export default {
 			imageUrl: '', //封面地址
 			dataUrl: '', //上传的地址
 			videoUrl: '', //视频地址
-			imgArr: [], //上传的图片数组
+			imgArr: [], //上传图片
 			isPrompt: false, //是否显示提示框
 			tabIndex: 0, //点击了哪一个模式
 			isRecord: false,
 			voicePath: '', //录制音频地址
 			isPlayShow: false, //是否显示音频播放插件
-			isPlay: false //是否为播放状态
+			isPlay: false, //是否为播放状态
+			isRevise: false //是否为修改
 		};
 	},
 	onLoad(e) {
@@ -143,10 +143,12 @@ export default {
 		};
 		this.$imgOss.getParam(param);
 		recorderManager.onStop(function(res) {
-			console.log(res);
 			self.voicePath = res.tempFilePath;
 			self.audioUrl = res.tempFilePath;
 			this.isPlayShow = true;
+		});
+		innerAudioContext.onEnded(res => {
+			this.isPlay = false;
 		});
 		this.token = e.token;
 		this.userDictationaId = e.id;
@@ -156,77 +158,80 @@ export default {
 			token: this.token,
 			enable: 1
 		};
-		return;
 		this.uniHttp.getJSON(url, data, res => {
 			if (res.data.success) {
 				let data = res.data.data;
 				if (data != null) {
-					console.log('run');
-					this.listData = data;
-					for (let i = 0; i < data.length; i++) {
-						if (data[i].correctionType == 0 || data[i].type == 1) {
-							//图片
-							let imgArr = [];
-							imgArr.push(data[i].workUrl);
-							imgArr.push(data[i].twoWork);
-							imgArr.push(data[i].threeWorl);
-							data[i].imgArr = imgArr;
-						} else if (data[i].type == 2) {
-							//视频
-							let videoArr = [];
-							if (data[i].workUrl) {
-								let obj = {
-									img: data[i].photoUrl,
-									video: data[i].workUrl
-								};
-								videoArr.push(obj);
-							} else {
-								videoArr.push('');
-							}
-							if (data[i].twoWork) {
-								let obj = {
-									img: data[i].twoPhoto,
-									video: data[i].twoWork
-								};
-								videoArr.push(obj);
-							} else {
-								videoArr.push('');
-							}
-							if (data[i].threeWorl) {
-								let obj = {
-									img: data[i].twoPhoto,
-									video: data[i].threeWorl
-								};
-								videoArr.push(obj);
-							} else {
-								videoArr.push('');
-							}
-							data[i].videoArr = videoArr;
+					this.listData = [];
+					this.isRevise = true;
+					this.listData.push(data);
+					if (data.correctionType == 0 || data.correctionType == 1) {
+						//图片
+						let imgArr = [];
+						imgArr.push(data.videoUrl);
+						data.imgArr = imgArr;
+					} else if (data.correctionType == 2) {
+						//视频
+						let videoArr = [];
+						if (data.videoUrl) {
+							let obj = {
+								img: data.photoUrl,
+								video: data.videoUrl
+							};
+							videoArr.push(obj);
 						}
+						data.videoArr = videoArr;
 					}
 				}
 			}
 		});
 	},
 	onNavigationBarButtonTap(e) {
-		console.log(e);
 		if (e.index == 0) {
-			this.send();
+			plus.nativeUI.showWaiting();
+			this.verification();
 		}
 	},
 	methods: {
 		// 上传批改
-		send() {
-			if (this.correctionType == 0) {
-				console.log('run');
-				// this.uniHttp.appendFileA();
-				this.$imgOss.getJSON(this.imgArr[0], (res, status, url) => {
-					console.log(status);
-					console.log(url);
-				});
+		verification() {
+			let _this = this;
+			if (this.name == '') {
+				plus.nativeUI.toast('标题不能为空');
+				plus.nativeUI.closeWaiting();
+				return;
 			}
-			let url = 'manageHabit/insertHabitCorrection.json';
-			const data = {
+			if (this.correctionType == 0) {
+				if (this.imgArr[0]) {
+					this.upFile('$imgOss', this.imgArr[0], 'dataUrl', true);//上传图片
+				} else {
+					plus.nativeUI.toast('请先添加上传的图片');
+					plus.nativeUI.closeWaiting();
+					return;
+				}
+			} else if (this.correctionType == 1) {
+				if (this.voicePath) {
+					this.upFile('$imgOss', this.voicePath, 'dataUrl', true);//上传音频
+				} else {
+					plus.nativeUI.toast('请先录制音频');
+					plus.nativeUI.closeWaiting();
+					return;
+				}
+			} else if (this.correctionType == 2) {
+				if (this.videoUrl) {
+					this.upFile('$imgOss', this.imgArr[0], 'imageUrl', false); //上传封面
+					this.upFile('$videoOss', this.videoUrl, 'dataUrl', true); // 上传视频
+				} else {
+					plus.nativeUI.toast('请先添加上传的视频');
+					plus.nativeUI.closeWaiting();
+					return;
+				}
+			}
+		},
+		send() {
+			let url;
+			this.isRevise ? (url = 'manageHabit/updateHabitCorrection.json') : (url = 'manageHabit/insertHabitCorrection.json');
+			const dataHabit = {
 				userDictationaId: this.userDictationaId,
 				token: this.token,
 				enable: 1,
@@ -235,20 +240,46 @@ export default {
 				videoUrl: this.dataUrl,
 				correctionType: this.correctionType
 			};
-			return;
-			this.uniHttp.getJSON(url, data, res => {
-				if (res.data.success) {
+			this.isRevise ? (dataHabit.id = this.listData[0].id) : false;
+			this.uniHttp.getJSON(
+				url,
+				dataHabit,
+				data => {
+					if (data.data.success) {
+						plus.nativeUI.toast('发布成功');
+						uni.navigateBack({
+							delta: 1
+						});
+					} else {
+						plus.nativeUI.toast(data.data.msg);
+					}
+					plus.nativeUI.closeWaiting();
+				},
+				err => {
+					plus.nativeUI.toast('发布失败');
 				}
-			});
+			);
 		},
-		getParamA(type) {
-			let url = 'practice/uploadOss.json';
-			const data = {
-				hz: type
-			};
-			this.uniHttp.imgOss(url, data, res => {});
+		upFile(type, file, name, isSend) {
+			this[type].getJSON(
+				file,
+				res => {
+					if (res.status == 200) {
+						this[name] = res.url;
+						if (isSend) {
+							this.send();
+						} else {
+							return false;
+						}
+					} else {
+						plus.nativeUI.toast(file + '文件上传失败');
+					}
+				},
+				err => {
+					console.log('run');
+				}
+			);
 		},
-		videoErrorCallback() {},
 		record(type) {
 			if (!type) {
 				this.startRecord();
@@ -259,26 +290,17 @@ export default {
 			}
 		},
 		startRecord() {
-			console.log('开始录音');
-			uni.showToast({
-				type: 'none',
-				title: '开始录音'
-			});
+			plus.nativeUI.toast('开始录音');
 			recorderManager.start({
 				format: 'mp3'
 			});
 		},
 		endRecord() {
-			console.log('录音结束');
-			uni.showToast({
-				type: 'none',
-				title: '录音结束'
-			});
+			plus.nativeUI.toast('录音结束');
 			this.isPlayShow = true;
 			recorderManager.stop();
 		},
 		playVoice(isPlay) {
-			console.log('播放录音');
 			if (!isPlay) {
 				innerAudioContext.src = this.voicePath;
 				innerAudioContext.play();
@@ -291,7 +313,6 @@ export default {
 		// 上传图片
 		uploadImg() {
 			//上传图片
-			// this.imageUrl
 			var _this = this;
 			uni.chooseImage({
 				count: 1, //默认9
@@ -307,7 +328,7 @@ export default {
 			if (this.imgArr.length == 0) {
 				uni.showToast({
 					type: 'none',
-					title: '请先上传封面'
+					title: '请先上传视频封面'
 				});
 			} else {
 				uni.chooseVideo({
@@ -336,6 +357,25 @@ export default {
 		},
 		tapBar(type) {
 			//切换上传模式
+			let param, data;
+			if (type == 0) {
+				param = {
+					hz: 'content' //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
+				};
+			} else if (type == 1) {
+				param = {
+					hz: 'voice' //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
+				};
+			} else if (type == 2) {
+				data = {
+					hz: 'video' //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
+				};
+				param = {
+					hz: 'content' //修改文件格式 找后台要 音频的是 voice 视频video  图片 content   第一个地方
+				};
+				this.$videoOss.getParam(data);
+			}
+			this.$imgOss.getParam(param);
 			this.correctionType = type;
 			this.name = '';
 			this.imgArr = [];
@@ -578,6 +618,8 @@ export default {
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	background: #ffffff;
+	z-index: 10;
 }
 .typeBar view {
 	width: 33%;

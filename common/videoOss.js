@@ -50,12 +50,12 @@ function getParamA(data) {
 	});
 }
 
-function uniImgOss() {
+function uniVideoOss() {
 	var _succCallback = function() {};
 	var _errCallback = function() {};
-};
-uniImgOss.prototype.getParam = getParamA;
-uniImgOss.prototype.getJSON = function(url, succCallback, errCallback) {
+}; 
+uniVideoOss.prototype.getParam = getParamA;
+uniVideoOss.prototype.getJSON = function(url, succCallback, errCallback) {
 	let _this = this;
 	let testName; //本地测试用的
 	let n = url.substr(url.lastIndexOf('/') + 1);
@@ -139,5 +139,5 @@ function resizeA(src) {
 	})
 }
 export default {
-	uniImgOss
+	uniVideoOss
 }

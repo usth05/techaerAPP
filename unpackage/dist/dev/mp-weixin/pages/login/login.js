@@ -231,19 +231,12 @@ var _default =
             } });
 
         } else {
-          uni.showToast({
-            title: res.data.data.msg,
-            icon: 'none',
-            duration: 2000 });
-
+          console.log(res);
+          plus.nativeUI.toast(res.data.msg);
         }
       },
       function (err) {
-        uni.showToast({
-          title: err.data.data.msg,
-          icon: 'none',
-          duration: 2000 });
-
+        plus.nativeUI.toast(err.data.msg);
         console.log(err);
       });
 

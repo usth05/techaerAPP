@@ -1,0 +1,6 @@
+
+.richText,.richText ._p,.richText ._p ._img,.richText ._p ._table,.richText ._p ._div,.richText rich-text ._img,.richText rich-text image{
+	width: 100%;
+}
+
+

@@ -1,1 +1,2 @@
+setCssToHead([".",[1],"richText,.",[1],"richText .",[1],"_p,.",[1],"richText .",[1],"_p .",[1],"_img,.",[1],"richText .",[1],"_p .",[1],"_table,.",[1],"richText .",[1],"_p .",[1],"_div,.",[1],"richText wx-rich-text .",[1],"_img,.",[1],"richText wx-rich-text wx-image{ width: 100%; }\n",],undefined,{path:"./pages/peiyou3/peiyou3.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/peiyou3/peiyou3.wxml') } }));

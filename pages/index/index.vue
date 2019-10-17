@@ -59,7 +59,7 @@ export default {
 				});
 			},
 			complete: function(data) {
-				console.log(data);
+				// console.log(data);
 			}
 		});
 	},

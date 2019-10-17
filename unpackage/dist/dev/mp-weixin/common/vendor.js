@@ -8534,8 +8534,8 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _serverAddrImg = "http://47.98.249.149:8020/readbaoss/"; //查看线上服务器图片地址
-// const _serverAddr = "http://47.98.249.149:8020/readba/"; //线上服务器地址
-var _serverAddr = "http://192.168.1.108:8080/zhijian-app-web/"; //本地服务器地址
+var _serverAddr = "http://47.98.249.149:8020/readba/"; //线上服务器地址
+// const _serverAddr = "http://192.168.1.108:8080/zhijian-app-web/"; //本地服务器地址
 
 
 // cookie 的本地存储位置
@@ -8599,8 +8599,6 @@ function postDataFormat(obj) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 15));
-var _imgOss = _interopRequireDefault(__webpack_require__(/*! ./imgOss.js */ 17));
-var _audioOss = _interopRequireDefault(__webpack_require__(/*! ./audioOss.js */ 18));
 
 
 
@@ -8681,20 +8679,14 @@ var _audioOss = _interopRequireDefault(__webpack_require__(/*! ./audioOss.js */ 
 
 
 
-
-
-
-
-
-
-var _index = _interopRequireDefault(__webpack_require__(/*! ../js_sdk/gangdiedao-uni-axios/index.js */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function uniHttp() {var _succCallback = function _succCallback() {};var _errCallback = function _errCallback() {};var _comCallbac = function _comCallbac() {};};uniHttp.prototype.getJSON = function (url, data, succCallback, errCallback, comCallbac) {var _this = this;var cookies = '';var token = ';';if (typeof succCallback == "function") {this._succCallback = succCallback;} else {this._succCallback = function () {};}if (typeof errCallback == "function") {this._errCallback = errCallback;} else {this._errCallback = function () {};}if (typeof comCallbac == "function") {this._comCallbac = comCallbac;} else {this._comCallbac = function () {};} // console.log(config._serverAddr + url)
-  // console.log(config.COOKIE_KEY)
-  uni.getStorage({ key: _config.default.COOKIE_KEY, success: function success(res) {cookies = res.data[0];} });var header = { 'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': cookies };uni.getStorage({ key: 'token', success: function success(res) {token = res.data;header.token = token;} });setTimeout(function () {uni.request({ url: _config.default._serverAddr + url, //仅为示例，并非真实接口地址。
-      method: 'POST', xhrFields: { withCredentials: true }, crossDomain: true, header: header, data: postDataFormat(data), success: function success(res) {_this._succCallback(res);}, fail: function fail(err) {_this._errCallback(err);}, complete: function complete(data) {_this._comCallbac(data);} });}, 200);};uniHttp.prototype.getParamA = _imgOss.default.getParamA;uniHttp.prototype.resizeA = _imgOss.default.resizeA;uniHttp.prototype.appendFileA = _imgOss.default.appendFileA;uniHttp.prototype.resize = _audioOss.default.resizeA;uniHttp.prototype.appendFile = _audioOss.default.appendFileA;function postDataFormat(obj) {if (typeof obj != "object") {console.log("输入的参数必须是对象");return;}var arr = new Array();var i = 0;for (var attr in obj) {arr[i] = encodeURIComponent(attr) + "=" + encodeURIComponent(obj[attr]);i++;}return arr.join("&"); //  }
+var _index = _interopRequireDefault(__webpack_require__(/*! ../js_sdk/gangdiedao-uni-axios/index.js */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function uniHttp() {var _succCallback = function _succCallback() {};var _errCallback = function _errCallback() {};var _comCallbac = function _comCallbac() {};};uniHttp.prototype.getJSON = function (url, data, succCallback, errCallback, comCallbac) {var _this = this;var cookies = '';var token = ';';if (typeof succCallback == "function") {this._succCallback = succCallback;} else {this._succCallback = function () {};}if (typeof errCallback == "function") {this._errCallback = errCallback;} else {this._errCallback = function () {};}if (typeof comCallbac == "function") {this._comCallbac = comCallbac;} else {this._comCallbac = function () {};}uni.getStorage({ key: _config.default.COOKIE_KEY, success: function success(res) {cookies = res.data[0];} });var header = { 'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': cookies };uni.getStorage({ key: 'token', success: function success(res) {token = res.data;header.token = token;} });setTimeout(function () {uni.request({ url: _config.default._serverAddr + url, //仅为示例，并非真实接口地址。
+      method: 'POST', xhrFields: { withCredentials: true }, crossDomain: true, header: header, data: postDataFormat(data), success: function success(res) {_this._succCallback(res);}, fail: function fail(err) {_this._errCallback(err);}, complete: function complete(data) {_this._comCallbac(data);} });}, 200);};function postDataFormat(obj) {if (typeof obj != "object") {console.log("输入的参数必须是对象");return;}var arr = new Array();var i = 0;for (var attr in obj) {arr[i] = encodeURIComponent(attr) + "=" + encodeURIComponent(obj[attr]);i++;}return arr.join("&"); //  }
 } // axios 
 _index.default.defaults.withCredentials = true; /**
                                                  * 请求接口日志记录
-                                                 */function _reqlog(req) {if (true) {console.log("请求地址：" + req.url, req.data || req.params);
+                                                 */function _reqlog(req) {
+  if (true) {
+    console.log("请求地址：" + req.url, req.data || req.params);
   }
   //TODO 调接口异步写入日志数据库
 }
@@ -8739,296 +8731,6 @@ var _default = {
 
 /***/ }),
 /* 17 */
-/*!*************************************************************!*\
-  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/imgOss.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var server = ""; //申请到的阿里云OSS地址
-var OSSAccessKeyId = ""; //申请到的阿里云AccessKeyId和AccessKeySecret
-var AccessKeySecret = ""; //需要用自己申请的进行替换
-var files = []; //存储文件信息的数组
-var fname = ""; //表示文件名
-var dir = ""; //指定上传目录，此处指定上传到app目录下
-var now;
-var nowTime; //服务器时间对象
-var testName; //本地测试用的
-/*
- * 阿里云参数设置，用于计算签名signature
- */
-var policyBase64 = "";
-var message = policyBase64;
-
-var signature = "";
-
-function getParamA(data) {
-  var _this = this;
-  var header = {
-    'Content-Type': 'application/x-www-form-urlencoded' };
-
-  uni.request({
-    url: _config.default._serverAddr + "practice/uploadOss.json", //仅为示例，并非真实接口地址。
-    method: 'POST',
-    xhrFields: {
-      withCredentials: true },
-
-    crossDomain: true,
-    header: header,
-    data: data,
-    success: function success(res) {
-      console.log(res);
-      if (res.data.success) {
-        OSSAccessKeyId = res.data.data.accessid;
-        AccessKeySecret = res.data.data.accessKey;
-        signature = res.data.data.signature;
-        server = res.data.data.host;
-        dir = res.data.data.dir;
-        policyBase64 = res.data.data.policy;
-        now = res.data.data.currentTime;
-        nowTime = new Date(parseInt(now + "000"));
-      }
-    },
-    fail: function fail(err) {
-      console.log(err);
-    },
-    complete: function complete(data) {
-      console.log(data);
-    } });
-
-}
-
-function upimgA() {
-  console.log(JSON.stringify(files));
-  if (files.length <= 0) {
-
-    return;
-  }
-  var suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
-  var keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
-  testName = keyname;
-  var data = {
-    'name': keyname,
-    'key': keyname,
-    'policy': policyBase64,
-    'OSSAccessKeyId': OSSAccessKeyId,
-    'success_action_status': "200",
-    'signature': signature };
-
-
-  var f = files[0];
-  console.log(f.path);
-  console.log(data);
-  uni.uploadFile({
-    url: server, //仅为示例，非真实的接口地址
-    filePath: f.path,
-    header: {
-      'Content-Type': 'multipart/form-data' },
-
-    name: keyname,
-    formData: data,
-    onHeadersReceived: function onHeadersReceived(heade) {
-      console.log(heade);
-    },
-    success: function success(uploadFileRes) {
-      console.log(uploadFileRes);
-    } });
-
-}
-
-//得到文件名的后缀
-function get_suffixA(filename) {
-  var pos = filename.lastIndexOf('.');
-  var suffix = '';
-  if (pos != -1) {
-    suffix = filename.substring(pos);
-  }
-  return suffix;
-}
-// 添加文件
-var index = 1;
-
-function appendFileA(p) {
-  var n = p.substr(p.lastIndexOf('/') + 1);
-  fname = n;
-  files.unshift({
-    name: "uploadkey" + index,
-    path: p });
-
-  index++;
-  upimgA();
-}
-//获取上传路径
-function getUploadPathA() {
-  console.log(nowTime);
-  var NowDate = nowTime.getFullYear() + (nowTime.getMonth() + 1 < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime.getDate() <
-  10 ? "0" : "") + nowTime.getDate();
-  var uploadeUrl = "/" + NowDate + "/";
-  return uploadeUrl;
-}
-
-function resizeA(src) {
-  uni.compressImage({
-    src: src,
-    success: function success(res) {
-      appendFileA(res.tempFilePath);
-    },
-    complete: function complete(data) {
-      console.log(data);
-    } });
-
-}var _default =
-{
-  getParamA: getParamA,
-  appendFileA: appendFileA,
-  upimgA: upimgA,
-  resizeA: resizeA };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 18 */
-/*!***************************************************************!*\
-  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/audioOss.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var server = ""; //申请到的阿里云OSS地址
-var OSSAccessKeyId = ""; //申请到的阿里云AccessKeyId和AccessKeySecret
-var AccessKeySecret = ""; //需要用自己申请的进行替换
-var files = []; //存储文件信息的数组
-var fname = ""; //表示文件名
-var dir = ""; //指定上传目录，此处指定上传到app目录下
-var now;
-var nowTime; //服务器时间对象
-var testName; //本地测试用的
-/*
- * 阿里云参数设置，用于计算签名signature
- */
-var policyBase64 = "";
-var message = policyBase64;
-
-var signature = "";
-
-function getParamA(data) {
-  var _this = this;
-  var header = {
-    'Content-Type': 'application/x-www-form-urlencoded' };
-
-  uni.request({
-    url: _config.default._serverAddr + "practice/uploadOss.json", //仅为示例，并非真实接口地址。
-    method: 'POST',
-    xhrFields: {
-      withCredentials: true },
-
-    crossDomain: true,
-    header: header,
-    data: data,
-    success: function success(res) {
-      if (res.data.success) {
-        OSSAccessKeyId = res.data.data.accessid;
-        AccessKeySecret = res.data.data.accessKey;
-        signature = res.data.data.signature;
-        server = res.data.data.host;
-        dir = res.data.data.dir;
-        policyBase64 = res.data.data.policy;
-        now = res.data.data.currentTime;
-        nowTime = new Date(parseInt(now + "000"));
-      }
-    },
-    fail: function fail(err) {
-      console.log(err);
-    },
-    complete: function complete(data) {
-      console.log(data);
-    } });
-
-}
-
-function upimgA() {
-  console.log(JSON.stringify(files));
-  if (files.length <= 0) {
-
-    return;
-  }
-  var suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
-  var keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
-  testName = keyname;
-  var data = {
-    key: keyname,
-    policy: policyBase64,
-    OSSAccessKeyId: OSSAccessKeyId,
-    success_action_status: "200",
-    signature: signature };
-
-  var f = files[0];
-  console.log(f);
-  console.log(data);
-  uni.uploadFile({
-    url: server, //仅为示例，非真实的接口地址
-    filePath: f.path,
-    name: keyname,
-    formData: data,
-    success: function success(uploadFileRes) {
-      console.log(uploadFileRes);
-    } });
-
-}
-
-//得到文件名的后缀
-function get_suffixA(filename) {
-  var pos = filename.lastIndexOf('.');
-  var suffix = '';
-  if (pos != -1) {
-    suffix = filename.substring(pos);
-  }
-  return suffix;
-}
-// 添加文件
-var index = 1;
-
-function appendFileA(p) {
-  var n = p.substr(p.lastIndexOf('/') + 1);
-  fname = n;
-  files.unshift({
-    name: "uploadkey" + index,
-    path: p });
-
-  index++;
-  upimgA();
-}
-//获取上传路径
-function getUploadPathA() {
-  var NowDate = nowTime.getFullYear() + (nowTime.getMonth() + 1 < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime.getDate() <
-  10 ? "0" : "") + nowTime.getDate();
-  var uploadeUrl = "/" + NowDate + "/";
-  return uploadeUrl;
-}
-
-function resizeA(src) {
-  uni.compressImage({
-    src: src,
-    success: function success(res) {
-      appendFileA(res.tempFilePath);
-    },
-    complete: function complete(data) {
-      console.log(data);
-    } });
-
-}var _default =
-{
-  getParamA: getParamA,
-  appendFileA: appendFileA,
-  upimgA: upimgA,
-  resizeA: resizeA };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 19 */
 /*!*********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/js_sdk/gangdiedao-uni-axios/index.js ***!
   \*********************************************************************************/
@@ -9036,11 +8738,11 @@ function resizeA(src) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _uniAxios = __webpack_require__(/*! ./uni-axios */ 20);var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _uniAxios = __webpack_require__(/*! ./uni-axios */ 18);var _default =
 _uniAxios.axios;exports.default = _default;
 
 /***/ }),
-/* 20 */
+/* 18 */
 /*!*************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/js_sdk/gangdiedao-uni-axios/uni-axios.js ***!
   \*************************************************************************************/
@@ -9048,7 +8750,7 @@ _uniAxios.axios;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });var _exportNames = { axios: true };Object.defineProperty(exports, "axios", { enumerable: true, get: function get() {return _axios.default;} });var _axios = _interopRequireWildcard(__webpack_require__(/*! axios */ 21));
+Object.defineProperty(exports, "__esModule", { value: true });var _exportNames = { axios: true };Object.defineProperty(exports, "axios", { enumerable: true, get: function get() {return _axios.default;} });var _axios = _interopRequireWildcard(__webpack_require__(/*! axios */ 19));
 
 
 
@@ -9090,10 +8792,10 @@ Object.defineProperty(exports, "__esModule", { value: true });var _exportNames =
 
 
 
-Object.keys(_axios).forEach(function (key) {if (key === "default" || key === "__esModule") return;if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _axios[key];} });});var _utils = _interopRequireDefault(__webpack_require__(/*! axios/lib/utils */ 23));var _adapter = __webpack_require__(/*! ./adapter */ 49);var _normalizeHeaderName = _interopRequireDefault(__webpack_require__(/*! axios/lib/helpers/normalizeHeaderName */ 35));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}function setContentTypeIfUnset(headers, value) {if (!_utils.default.isUndefined(headers) && _utils.default.isUndefined(headers['Content-Type'])) {headers['Content-Type'] = value;}}_axios.default.defaults.transformRequest = [function transformRequest(data, headers) {(0, _normalizeHeaderName.default)(headers, 'Accept');(0, _normalizeHeaderName.default)(headers, 'Content-Type');if (_utils.default.isFormData(data) || _utils.default.isArrayBuffer(data) || _utils.default.isBuffer(data) || _utils.default.isStream(data) || _utils.default.isFile(data) || _utils.default.isBlob(data)) {return data;}if (_utils.default.isArrayBufferView(data)) {return data.buffer;}if (_utils.default.isURLSearchParams(data)) {setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');return data.toString();}if (_utils.default.isObject(data)) {setContentTypeIfUnset(headers, 'application/json;charset=utf-8');return JSON.stringify(data);}return data;}];_axios.default.defaults.adapter = _adapter.adapter;
+Object.keys(_axios).forEach(function (key) {if (key === "default" || key === "__esModule") return;if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;Object.defineProperty(exports, key, { enumerable: true, get: function get() {return _axios[key];} });});var _utils = _interopRequireDefault(__webpack_require__(/*! axios/lib/utils */ 21));var _adapter = __webpack_require__(/*! ./adapter */ 47);var _normalizeHeaderName = _interopRequireDefault(__webpack_require__(/*! axios/lib/helpers/normalizeHeaderName */ 33));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};if (desc.get || desc.set) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}}newObj.default = obj;return newObj;}}function setContentTypeIfUnset(headers, value) {if (!_utils.default.isUndefined(headers) && _utils.default.isUndefined(headers['Content-Type'])) {headers['Content-Type'] = value;}}_axios.default.defaults.transformRequest = [function transformRequest(data, headers) {(0, _normalizeHeaderName.default)(headers, 'Accept');(0, _normalizeHeaderName.default)(headers, 'Content-Type');if (_utils.default.isFormData(data) || _utils.default.isArrayBuffer(data) || _utils.default.isBuffer(data) || _utils.default.isStream(data) || _utils.default.isFile(data) || _utils.default.isBlob(data)) {return data;}if (_utils.default.isArrayBufferView(data)) {return data.buffer;}if (_utils.default.isURLSearchParams(data)) {setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');return data.toString();}if (_utils.default.isObject(data)) {setContentTypeIfUnset(headers, 'application/json;charset=utf-8');return JSON.stringify(data);}return data;}];_axios.default.defaults.adapter = _adapter.adapter;
 
 /***/ }),
-/* 21 */
+/* 19 */
 /*!************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/index.js ***!
   \************************************************************************/
@@ -9101,10 +8803,10 @@ Object.keys(_axios).forEach(function (key) {if (key === "default" || key === "__
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-module.exports = __webpack_require__(/*! ./lib/axios */ 22);
+module.exports = __webpack_require__(/*! ./lib/axios */ 20);
 
 /***/ }),
-/* 22 */
+/* 20 */
 /*!****************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/axios.js ***!
   \****************************************************************************/
@@ -9114,11 +8816,11 @@ module.exports = __webpack_require__(/*! ./lib/axios */ 22);
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./utils */ 23);
-var bind = __webpack_require__(/*! ./helpers/bind */ 24);
-var Axios = __webpack_require__(/*! ./core/Axios */ 26);
-var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 45);
-var defaults = __webpack_require__(/*! ./defaults */ 32);
+var utils = __webpack_require__(/*! ./utils */ 21);
+var bind = __webpack_require__(/*! ./helpers/bind */ 22);
+var Axios = __webpack_require__(/*! ./core/Axios */ 24);
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ 43);
+var defaults = __webpack_require__(/*! ./defaults */ 30);
 
 /**
                                        * Create an instance of Axios
@@ -9151,15 +8853,15 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 46);
-axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 47);
-axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 31);
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ 44);
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ 45);
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ 29);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(/*! ./helpers/spread */ 48);
+axios.spread = __webpack_require__(/*! ./helpers/spread */ 46);
 
 module.exports = axios;
 
@@ -9167,7 +8869,7 @@ module.exports = axios;
 module.exports.default = axios;
 
 /***/ }),
-/* 23 */
+/* 21 */
 /*!****************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/utils.js ***!
   \****************************************************************************/
@@ -9177,8 +8879,8 @@ module.exports.default = axios;
 "use strict";
 
 
-var bind = __webpack_require__(/*! ./helpers/bind */ 24);
-var isBuffer = __webpack_require__(/*! is-buffer */ 25);
+var bind = __webpack_require__(/*! ./helpers/bind */ 22);
+var isBuffer = __webpack_require__(/*! is-buffer */ 23);
 
 /*global toString:true*/
 
@@ -9510,7 +9212,7 @@ module.exports = {
   trim: trim };
 
 /***/ }),
-/* 24 */
+/* 22 */
 /*!***********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/bind.js ***!
   \***********************************************************************************/
@@ -9531,7 +9233,7 @@ module.exports = function bind(fn, thisArg) {
 };
 
 /***/ }),
-/* 25 */
+/* 23 */
 /*!*****************************************!*\
   !*** ./node_modules/is-buffer/index.js ***!
   \*****************************************/
@@ -9562,7 +9264,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 26 */
+/* 24 */
 /*!*********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/Axios.js ***!
   \*********************************************************************************/
@@ -9572,11 +9274,11 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
-var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 27);
-var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 28);
-var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 29);
-var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 45);
+var utils = __webpack_require__(/*! ./../utils */ 21);
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ 25);
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ 26);
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ 27);
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ 43);
 
 /**
                                              * Create a new instance of Axios
@@ -9658,7 +9360,7 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 module.exports = Axios;
 
 /***/ }),
-/* 27 */
+/* 25 */
 /*!***************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/buildURL.js ***!
   \***************************************************************************************/
@@ -9668,7 +9370,7 @@ module.exports = Axios;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 function encode(val) {
   return encodeURIComponent(val).
@@ -9739,7 +9441,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 };
 
 /***/ }),
-/* 28 */
+/* 26 */
 /*!**********************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/InterceptorManager.js ***!
   \**********************************************************************************************/
@@ -9749,7 +9451,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 function InterceptorManager() {
   this.handlers = [];
@@ -9801,7 +9503,7 @@ InterceptorManager.prototype.forEach = function forEach(fn) {
 module.exports = InterceptorManager;
 
 /***/ }),
-/* 29 */
+/* 27 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/dispatchRequest.js ***!
   \*******************************************************************************************/
@@ -9811,12 +9513,12 @@ module.exports = InterceptorManager;
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
-var transformData = __webpack_require__(/*! ./transformData */ 30);
-var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 31);
-var defaults = __webpack_require__(/*! ../defaults */ 32);
-var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ 43);
-var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ 44);
+var utils = __webpack_require__(/*! ./../utils */ 21);
+var transformData = __webpack_require__(/*! ./transformData */ 28);
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ 29);
+var defaults = __webpack_require__(/*! ../defaults */ 30);
+var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ 41);
+var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ 42);
 
 /**
                                                         * Throws a `Cancel` if cancellation has been requested.
@@ -9897,7 +9599,7 @@ module.exports = function dispatchRequest(config) {
 };
 
 /***/ }),
-/* 30 */
+/* 28 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/transformData.js ***!
   \*****************************************************************************************/
@@ -9907,7 +9609,7 @@ module.exports = function dispatchRequest(config) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 /**
                                     * Transform the data for a request or a response
@@ -9927,7 +9629,7 @@ module.exports = function transformData(data, headers, fns) {
 };
 
 /***/ }),
-/* 31 */
+/* 29 */
 /*!**************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/cancel/isCancel.js ***!
   \**************************************************************************************/
@@ -9942,7 +9644,7 @@ module.exports = function isCancel(value) {
 };
 
 /***/ }),
-/* 32 */
+/* 30 */
 /*!*******************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/defaults.js ***!
   \*******************************************************************************/
@@ -9952,8 +9654,8 @@ module.exports = function isCancel(value) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
-var utils = __webpack_require__(/*! ./utils */ 23);
-var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 35);
+var utils = __webpack_require__(/*! ./utils */ 21);
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ 33);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded' };
@@ -9970,10 +9672,10 @@ function getDefaultAdapter() {
   // Only Node.JS has a process variable that is of [[Class]] process
   if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(/*! ./adapters/http */ 36);
+    adapter = __webpack_require__(/*! ./adapters/http */ 34);
   } else if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(/*! ./adapters/xhr */ 36);
+    adapter = __webpack_require__(/*! ./adapters/xhr */ 34);
   }
   return adapter;
 }
@@ -10048,10 +9750,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 });
 
 module.exports = defaults;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 33)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 31)))
 
 /***/ }),
-/* 33 */
+/* 31 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -10078,7 +9780,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 34);
+        if (!path) path = __webpack_require__(/*! path */ 32);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -10091,7 +9793,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 34 */
+/* 32 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -10323,10 +10025,10 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 33)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 31)))
 
 /***/ }),
-/* 35 */
+/* 33 */
 /*!**************************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
   \**************************************************************************************************/
@@ -10336,7 +10038,7 @@ var substr = 'ab'.substr(-1) === 'b'
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 23);
+var utils = __webpack_require__(/*! ../utils */ 21);
 
 module.exports = function normalizeHeaderName(headers, normalizedName) {
   utils.forEach(headers, function processHeader(value, name) {
@@ -10348,7 +10050,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 };
 
 /***/ }),
-/* 36 */
+/* 34 */
 /*!***********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/adapters/xhr.js ***!
   \***********************************************************************************/
@@ -10358,12 +10060,12 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
-var settle = __webpack_require__(/*! ./../core/settle */ 37);
-var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 27);
-var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 40);
-var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 41);
-var createError = __webpack_require__(/*! ../core/createError */ 38);
+var utils = __webpack_require__(/*! ./../utils */ 21);
+var settle = __webpack_require__(/*! ./../core/settle */ 35);
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ 25);
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ 38);
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ 39);
+var createError = __webpack_require__(/*! ../core/createError */ 36);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -10455,7 +10157,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 42);
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ 40);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -10532,7 +10234,7 @@ module.exports = function xhrAdapter(config) {
 };
 
 /***/ }),
-/* 37 */
+/* 35 */
 /*!**********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/settle.js ***!
   \**********************************************************************************/
@@ -10542,7 +10244,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var createError = __webpack_require__(/*! ./createError */ 38);
+var createError = __webpack_require__(/*! ./createError */ 36);
 
 /**
                                              * Resolve or reject a Promise based on response status.
@@ -10567,7 +10269,7 @@ module.exports = function settle(resolve, reject, response) {
 };
 
 /***/ }),
-/* 38 */
+/* 36 */
 /*!***************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/createError.js ***!
   \***************************************************************************************/
@@ -10577,7 +10279,7 @@ module.exports = function settle(resolve, reject, response) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(/*! ./enhanceError */ 39);
+var enhanceError = __webpack_require__(/*! ./enhanceError */ 37);
 
 /**
                                                * Create an Error with the specified message, config, error code, request and response.
@@ -10595,7 +10297,7 @@ module.exports = function createError(message, config, code, request, response) 
 };
 
 /***/ }),
-/* 39 */
+/* 37 */
 /*!****************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/enhanceError.js ***!
   \****************************************************************************************/
@@ -10647,7 +10349,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 };
 
 /***/ }),
-/* 40 */
+/* 38 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/parseHeaders.js ***!
   \*******************************************************************************************/
@@ -10657,7 +10359,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 // Headers whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -10710,7 +10412,7 @@ module.exports = function parseHeaders(headers) {
 };
 
 /***/ }),
-/* 41 */
+/* 39 */
 /*!**********************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
   \**********************************************************************************************/
@@ -10720,7 +10422,7 @@ module.exports = function parseHeaders(headers) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -10787,7 +10489,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 42 */
+/* 40 */
 /*!**************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/cookies.js ***!
   \**************************************************************************************/
@@ -10797,7 +10499,7 @@ function nonStandardBrowserEnv() {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ./../utils */ 23);
+var utils = __webpack_require__(/*! ./../utils */ 21);
 
 module.exports =
 utils.isStandardBrowserEnv() ?
@@ -10849,7 +10551,7 @@ function nonStandardBrowserEnv() {
 }();
 
 /***/ }),
-/* 43 */
+/* 41 */
 /*!********************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
   \********************************************************************************************/
@@ -10873,7 +10575,7 @@ module.exports = function isAbsoluteURL(url) {
 };
 
 /***/ }),
-/* 44 */
+/* 42 */
 /*!******************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/combineURLs.js ***!
   \******************************************************************************************/
@@ -10897,7 +10599,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 };
 
 /***/ }),
-/* 45 */
+/* 43 */
 /*!***************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/core/mergeConfig.js ***!
   \***************************************************************************************/
@@ -10907,7 +10609,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var utils = __webpack_require__(/*! ../utils */ 23);
+var utils = __webpack_require__(/*! ../utils */ 21);
 
 /**
                                   * Config-specific merge-function which creates a new config-object
@@ -10958,7 +10660,7 @@ module.exports = function mergeConfig(config1, config2) {
 };
 
 /***/ }),
-/* 46 */
+/* 44 */
 /*!************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/cancel/Cancel.js ***!
   \************************************************************************************/
@@ -10987,7 +10689,7 @@ Cancel.prototype.__CANCEL__ = true;
 module.exports = Cancel;
 
 /***/ }),
-/* 47 */
+/* 45 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/cancel/CancelToken.js ***!
   \*****************************************************************************************/
@@ -10997,7 +10699,7 @@ module.exports = Cancel;
 "use strict";
 
 
-var Cancel = __webpack_require__(/*! ./Cancel */ 46);
+var Cancel = __webpack_require__(/*! ./Cancel */ 44);
 
 /**
                                    * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -11054,7 +10756,7 @@ CancelToken.source = function source() {
 module.exports = CancelToken;
 
 /***/ }),
-/* 48 */
+/* 46 */
 /*!*************************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/node_modules/axios/lib/helpers/spread.js ***!
   \*************************************************************************************/
@@ -11091,7 +10793,7 @@ module.exports = function spread(callback) {
 };
 
 /***/ }),
-/* 49 */
+/* 47 */
 /*!***********************************************************************************!*\
   !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/js_sdk/gangdiedao-uni-axios/adapter.js ***!
   \***********************************************************************************/
@@ -11099,11 +10801,11 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.adapter = void 0;var _utils = __webpack_require__(/*! axios/lib/utils */ 23);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.adapter = void 0;var _utils = __webpack_require__(/*! axios/lib/utils */ 21);
 
-var _createError = _interopRequireDefault(__webpack_require__(/*! axios/lib/core/createError */ 38));
-var _buildURL = _interopRequireDefault(__webpack_require__(/*! axios/lib/helpers/buildURL */ 27));
-var _settle = _interopRequireDefault(__webpack_require__(/*! axios/lib/core/settle */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}
+var _createError = _interopRequireDefault(__webpack_require__(/*! axios/lib/core/createError */ 36));
+var _buildURL = _interopRequireDefault(__webpack_require__(/*! axios/lib/helpers/buildURL */ 25));
+var _settle = _interopRequireDefault(__webpack_require__(/*! axios/lib/core/settle */ 35));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}
 
 var adapter = function adapter(config) {
   return new Promise(function (resolve, reject) {
@@ -11162,6 +10864,312 @@ var adapter = function adapter(config) {
     }
   });
 };exports.adapter = adapter;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 48 */
+/*!*************************************************************!*\
+  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/imgOss.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var server = ""; //申请到的阿里云OSS地址
+var OSSAccessKeyId = ""; //申请到的阿里云AccessKeyId和AccessKeySecret
+var AccessKeySecret = ""; //需要用自己申请的进行替换
+var files = []; //存储文件信息的数组
+var fname = ""; //表示文件名
+var dir = ""; //指定上传目录，此处指定上传到app目录下
+var now;
+var nowTime; //服务器时间对象
+/*
+ * 阿里云参数设置，用于计算签名signature
+ */
+var policyBase64 = "";
+var message = policyBase64;
+
+var signature = "";
+// 获取阿里云OSS地址，AccessKeyId和AccessKeySecret
+function getParamA(data) {
+  var _this = this;
+  var header = {
+    'Content-Type': 'application/x-www-form-urlencoded' };
+
+  uni.request({
+    url: _config.default._serverAddr + "practice/uploadOss.json", //仅为示例，并非真实接口地址。
+    method: 'POST',
+    xhrFields: {
+      withCredentials: true },
+
+    crossDomain: true,
+    header: header,
+    data: data,
+    success: function success(res) {
+      if (res.data.success) {
+        OSSAccessKeyId = res.data.data.accessid;
+        AccessKeySecret = res.data.data.accessKey;
+        signature = res.data.data.signature;
+        server = res.data.data.host;
+        dir = res.data.data.dir;
+        policyBase64 = res.data.data.policy;
+        now = res.data.data.currentTime;
+        nowTime = new Date(parseInt(now + "000"));
+      }
+    },
+    fail: function fail(err) {
+      // console.log(err)
+    },
+    complete: function complete(data) {
+      // console.log(data)
+    } });
+
+}
+
+function uniImgOss() {
+  var _succCallback = function _succCallback() {};
+  var _errCallback = function _errCallback() {};
+};
+uniImgOss.prototype.getParam = getParamA;
+uniImgOss.prototype.getJSON = function (url, succCallback, errCallback) {
+  var _this = this;
+  var testName; //本地测试用的
+  var n = url.substr(url.lastIndexOf('/') + 1);
+  fname = n;
+  files.unshift({
+    name: "uploadkey" + index,
+    path: url });
+
+  index++;
+  if (typeof succCallback == "function") {
+    this._succCallback = succCallback;
+  } else {
+    this._succCallback = function () {};
+  }
+  if (typeof errCallback == "function") {
+    this._errCallback = errCallback;
+  } else {
+    this._errCallback = function () {};
+  }
+  if (files.length <= 0) {
+    plus.nativeUI.alert("没有添加上传文件！");
+    return;
+  }
+  var task = plus.uploader.createUpload(server, {
+    method: "POST" },
+  function (t, status) {//上传完成
+    var res = {
+      t: t,
+      status: status,
+      url: _config.default._serverAddrImg + testName };
+
+    _this._succCallback(res);
+  });
+  var suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
+  var keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
+  testName = keyname;
+  //按照之前说明的参数类型，按顺序添加参数
+  task.addData("key", keyname);
+  task.addData("policy", policyBase64);
+  task.addData("OSSAccessKeyId", OSSAccessKeyId);
+  task.addData("success_action_status", "200");
+  task.addData("signature", signature);
+  var f = files[0];
+  task.addFile(f.path, {
+    key: "file",
+    name: "file" });
+
+  task.start();
+};
+//得到文件名的后缀
+function get_suffixA(filename) {
+  var pos = filename.lastIndexOf('.');
+  var suffix = '';
+  if (pos != -1) {
+    suffix = filename.substring(pos);
+  }
+  return suffix;
+}
+// 添加文件
+var index = 1;
+
+//获取上传路径
+function getUploadPathA() {
+  // console.log(nowTime)
+  var NowDate = nowTime.getFullYear() + (nowTime.getMonth() + 1 < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime.
+  getDate() <
+  10 ? "0" : "") + nowTime.getDate();
+  var uploadeUrl = "/" + NowDate + "/";
+  return uploadeUrl;
+}
+
+function resizeA(src) {
+  uni.compressImage({
+    src: src,
+    success: function success(res) {
+      appendFileA(res.tempFilePath);
+    },
+    complete: function complete(data) {
+      console.log(data);
+    } });
+
+}var _default =
+{
+  uniImgOss: uniImgOss };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 49 */
+/*!***************************************************************!*\
+  !*** C:/Users/ixuelei/Desktop/项目/小学阅读吧教师端/common/videoOss.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! ./config.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var server = ""; //申请到的阿里云OSS地址
+var OSSAccessKeyId = ""; //申请到的阿里云AccessKeyId和AccessKeySecret
+var AccessKeySecret = ""; //需要用自己申请的进行替换
+var files = []; //存储文件信息的数组
+var fname = ""; //表示文件名
+var dir = ""; //指定上传目录，此处指定上传到app目录下
+var now;
+var nowTime; //服务器时间对象
+/*
+ * 阿里云参数设置，用于计算签名signature
+ */
+var policyBase64 = "";
+var message = policyBase64;
+
+var signature = "";
+// 获取阿里云OSS地址，AccessKeyId和AccessKeySecret
+function getParamA(data) {
+  var _this = this;
+  var header = {
+    'Content-Type': 'application/x-www-form-urlencoded' };
+
+  uni.request({
+    url: _config.default._serverAddr + "practice/uploadOss.json", //仅为示例，并非真实接口地址。
+    method: 'POST',
+    xhrFields: {
+      withCredentials: true },
+
+    crossDomain: true,
+    header: header,
+    data: data,
+    success: function success(res) {
+      if (res.data.success) {
+        OSSAccessKeyId = res.data.data.accessid;
+        AccessKeySecret = res.data.data.accessKey;
+        signature = res.data.data.signature;
+        server = res.data.data.host;
+        dir = res.data.data.dir;
+        policyBase64 = res.data.data.policy;
+        now = res.data.data.currentTime;
+        nowTime = new Date(parseInt(now + "000"));
+      }
+    },
+    fail: function fail(err) {
+      // console.log(err)
+    },
+    complete: function complete(data) {
+      // console.log(data)
+    } });
+
+}
+
+function uniVideoOss() {
+  var _succCallback = function _succCallback() {};
+  var _errCallback = function _errCallback() {};
+};
+uniVideoOss.prototype.getParam = getParamA;
+uniVideoOss.prototype.getJSON = function (url, succCallback, errCallback) {
+  var _this = this;
+  var testName; //本地测试用的
+  var n = url.substr(url.lastIndexOf('/') + 1);
+  fname = n;
+  files.unshift({
+    name: "uploadkey" + index,
+    path: url });
+
+  index++;
+  if (typeof succCallback == "function") {
+    this._succCallback = succCallback;
+  } else {
+    this._succCallback = function () {};
+  }
+  if (typeof errCallback == "function") {
+    this._errCallback = errCallback;
+  } else {
+    this._errCallback = function () {};
+  }
+  if (files.length <= 0) {
+    plus.nativeUI.alert("没有添加上传文件！");
+    return;
+  }
+  var task = plus.uploader.createUpload(server, {
+    method: "POST" },
+  function (t, status) {//上传完成
+    var res = {
+      t: t,
+      status: status,
+      url: _config.default._serverAddrImg + testName };
+
+    _this._succCallback(res);
+  });
+  var suffix1 = get_suffixA(fname); //文件后缀  例如   .jpg
+  var keyname = dir + getUploadPathA() + new Date().getTime() + suffix1;
+  testName = keyname;
+  //按照之前说明的参数类型，按顺序添加参数
+  task.addData("key", keyname);
+  task.addData("policy", policyBase64);
+  task.addData("OSSAccessKeyId", OSSAccessKeyId);
+  task.addData("success_action_status", "200");
+  task.addData("signature", signature);
+  var f = files[0];
+  task.addFile(f.path, {
+    key: "file",
+    name: "file" });
+
+  task.start();
+};
+//得到文件名的后缀
+function get_suffixA(filename) {
+  var pos = filename.lastIndexOf('.');
+  var suffix = '';
+  if (pos != -1) {
+    suffix = filename.substring(pos);
+  }
+  return suffix;
+}
+// 添加文件
+var index = 1;
+
+//获取上传路径
+function getUploadPathA() {
+  // console.log(nowTime)
+  var NowDate = nowTime.getFullYear() + (nowTime.getMonth() + 1 < 10 ? "0" : "") + (nowTime.getMonth() + 1) + (nowTime.
+  getDate() <
+  10 ? "0" : "") + nowTime.getDate();
+  var uploadeUrl = "/" + NowDate + "/";
+  return uploadeUrl;
+}
+
+function resizeA(src) {
+  uni.compressImage({
+    src: src,
+    success: function success(res) {
+      appendFileA(res.tempFilePath);
+    },
+    complete: function complete(data) {
+      console.log(data);
+    } });
+
+}var _default =
+{
+  uniVideoOss: uniVideoOss };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })

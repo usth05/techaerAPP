@@ -11,8 +11,9 @@
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 9));
 var _config = _interopRequireDefault(__webpack_require__(/*! ./common/config.js */ 15));
-var _request = _interopRequireDefault(__webpack_require__(/*! ./common/request.js */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./common/request.js */ 16));
+var _imgOss = _interopRequireDefault(__webpack_require__(/*! ./common/imgOss.js */ 48));
+var _videoOss = _interopRequireDefault(__webpack_require__(/*! ./common/videoOss.js */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 _vue.default.config.productionTip = false;
 
 _vue.default.prototype.config = _config.default;
@@ -20,6 +21,8 @@ _vue.default.prototype.config = _config.default;
 _vue.default.prototype.uniHttp = new _request.default.uniHttp();
 _vue.default.prototype.$http = _request.default.http;
 _vue.default.prototype.$axios = _request.default.axios;
+_vue.default.prototype.$imgOss = new _imgOss.default.uniImgOss();
+_vue.default.prototype.$videoOss = new _videoOss.default.uniVideoOss();
 _App.default.mpType = 'app';
 
 

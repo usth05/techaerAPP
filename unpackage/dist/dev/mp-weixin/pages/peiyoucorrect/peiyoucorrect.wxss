@@ -191,6 +191,7 @@
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	background: #ffffff;
 }
 .typeBar view.data-v-7dc7895a {
 	width: 33%;

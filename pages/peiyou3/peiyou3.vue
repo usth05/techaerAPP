@@ -3,7 +3,9 @@
 		<view class="uni-list">
 			<view class="uni-list-cell" :key="index" @tap="tabList(list)" v-for="(list,index) in listData">
 				<view class="uni-list-cell-navigate">
-					<view v-html="list.name"></view>
+					<view class="richText">
+						<rich-text :nodes="list.name"></rich-text>
+					</view>
 					<uni-badge :text="list.newCount" size="24" type="error" :inverted="false"></uni-badge>
 				</view>
 			</view>
@@ -50,5 +52,8 @@
 </script>
 
 <style>
+.richText,.richText p,.richText p img,.richText p table,.richText p div,.richText rich-text img,,.richText rich-text image{
+	width: 100%;
+}
 
 </style>

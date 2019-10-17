@@ -3,7 +3,7 @@
 		<view class="uni-list">
 			<view class="uni-list-cell" :key="index" @tap="tabList(list)" v-for="(list,index) in listData">
 				<view class="uni-list-cell-navigate">
-					{{list.name}}
+					第{{list.ord}}次打卡任务
 					<uni-badge :text="list.newCount" size="24" type="error" :inverted="false"></uni-badge>
 				</view>
 			</view>
