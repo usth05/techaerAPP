@@ -1,0 +1,131 @@
+
+#scroll.data-v-e4fb8714 {
+	height: 100vh;
+}
+#video.data-v-e4fb8714 {
+	width: 100%;
+	height: 400rpx;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+#video #myVideo.data-v-e4fb8714 {
+	width: 100%;
+	height: 100%;
+}
+#video #myVideo video.data-v-e4fb8714 {
+	width: 100%;
+	height: 100%;
+}
+#video .close.data-v-e4fb8714 {
+	color: #ffffff;
+	position: absolute;
+	width: 40rpx;
+	height: 40rpx;
+	top: 20rpx;
+	right: 40rpx;
+	z-index: 100 !important;
+}
+#video .icon-guanbi.data-v-e4fb8714:before {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
+.isLook.data-v-e4fb8714 {
+	margin-top: 400rpx;
+}
+.card.data-v-e4fb8714 {
+	width: 100%;
+	padding: 10rpx;
+	border: 2rpx solid #ffffff;
+	background: #ffffff;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	margin: 10rpx 0;
+}
+.first.data-v-e4fb8714 {
+	margin-top: 0;
+}
+.card .headCard.data-v-e4fb8714 {
+	width: 100%;
+	height: 130rpx;
+	position: relative;
+}
+.card .headCard .rightBox.data-v-e4fb8714 {
+	position: absolute;
+	width: 100rpx;
+	height: 100%;
+	right: 0;
+}
+.card .headCard .rightBox .pi.data-v-e4fb8714{
+	width: 60rpx;
+	height: 60rpx;
+	text-align: center;
+	line-height: 60rpx;
+	border-radius: 50%;
+	border: 2rpx solid #000000;
+}
+.card .headCard .imgBox.data-v-e4fb8714 {
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	border: 2rpx solid #fa6814;
+	overflow: hidden;
+	margin-right: 10rpx;
+}
+.card .contentCard.data-v-e4fb8714 {
+	width: 100%;
+	margin-top: 10rpx;
+}
+.card .contentCard .videoBox.data-v-e4fb8714 {
+	width: 100%;
+	height: 100%;
+}
+.card .contentCard .videoBox view.data-v-e4fb8714 {
+	width: 100%;
+}
+.card .contentCard .videoBox video.data-v-e4fb8714 {
+	width: 80%;
+}
+.card .contentCard .imgBox.data-v-e4fb8714,.card .contentCard .videoBox.data-v-e4fb8714{
+	width: 100%;
+}
+.card .contentCard .imgBox image.data-v-e4fb8714 {
+	width: 32%;
+	margin-right: 2%;
+}
+.card .contentCard .imgBox image.data-v-e4fb8714:nth-child(-1) {
+	margin-right: 0;
+}
+.card .contentCard .audioBox.data-v-e4fb8714{
+	width: 100%;
+	background: #FFFFFF;
+	margin-bottom: 10rpx;
+}
+.card .contentCard .videoBox view.data-v-e4fb8714{
+	width: 32%;
+	margin-right: 2%;
+	position: relative;
+}
+.card .contentCard .videoBox view.data-v-e4fb8714:nth-child(-1) {
+	margin-right: 0;
+}
+.card .contentCard .videoBox view image.data-v-e4fb8714 {
+	width: 100%;
+}
+.card .contentCard .videoBox .play.data-v-e4fb8714{
+	width: 140rpx;
+	height: 140rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 36px;
+}
+

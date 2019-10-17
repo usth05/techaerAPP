@@ -1,0 +1,19 @@
+别名: sth
+创建日期: 2019-10-17
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=xiaoxue, OU=xiaoxueyuedu, O=xiaoxueyuedu, L=sichuan, ST=mianyang, C=ch
+发布者: CN=xiaoxue, OU=xiaoxueyuedu, O=xiaoxueyuedu, L=sichuan, ST=mianyang, C=ch
+序列号: 3f57272e
+有效期开始日期: Thu Sep 20 15:24:30 CST 2018, 截止日期: Sat Aug 27 15:24:30 CST 2118
+证书指纹:
+         MD5: 69:66:A1:93:2A:90:22:75:21:8A:F6:5F:7B:43:E6:17
+         SHA1: 5C:B8:84:EC:2A:B5:70:7D:22:69:DB:A9:FB:2C:2F:51:E8:79:BF:AB
+         SHA256: 41:2F:C1:DC:7C:02:16:D1:FB:3A:6B:CD:CD:C4:8D:75:76:53:D8:07:4F:F8:E0:DA:69:3F:69:70:4F:45:72:0B
+         签名算法名称: SHA256withRSA
+         版本: 3
+
+
+
+密钥 111111  

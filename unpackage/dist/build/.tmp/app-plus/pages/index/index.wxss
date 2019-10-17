@@ -5,7 +5,7 @@
 .user .userImg {
 	width: 80rpx;
 	height: 80rpx;
-	border: 2rpx solid #FFB400;
+	border: 2rpx solid #ffb400;
 	border-radius: 100%;
 	overflow: hidden;
 	margin-right: 8rpx;
@@ -17,6 +17,6 @@
 .user .userInfo {
 	height: 80rpx;
 	font-size: 28rpx;
-	color: #FFFFFF;
+	color: #ffffff;
 }
 

@@ -9,7 +9,13 @@
     "pages/recruitmentDetail/recruitmentDetail",
     "pages/reviseUser/reviseUser",
     "pages/revisePwd/revisePwd",
-    "pages/peiyou/peiyou"
+    "pages/peiyou/peiyou",
+    "pages/peiyou1/peiyou1",
+    "pages/peiyou2/peiyou2",
+    "pages/peiyou3/peiyou3",
+    "pages/peiyouUser/peiyouUser",
+    "pages/release/release",
+    "pages/peiyoucorrect/peiyoucorrect"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -46,8 +52,8 @@
       {
         "pagePath": "pages/home/home",
         "text": "我的",
-        "iconPath": "static/images/home.png",
-        "selectedIconPath": "static/images/homeed.png"
+        "iconPath": "static/images/me.png",
+        "selectedIconPath": "static/images/meed.png"
       }
     ]
   },
