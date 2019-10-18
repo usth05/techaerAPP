@@ -1,8 +1,5 @@
 <template>
 	<view>
-		<!-- #ifdef APP-PLUS -->
-		<!-- <view class="status_bar"></view> -->
-		<!-- #endif -->
 		<uni-list>
 			<uni-list-item :key="index" v-for="(list, index) in listData" @click="tabList(list)" :title="list.name" :note="list.note"></uni-list-item>
 		</uni-list>
@@ -50,7 +47,7 @@ export default {
 	methods: {
 		tabList(list) {
 			uni.navigateTo({
-				url: '../recruitmentDetail/recruitmentDetail?list=' + encodeURIComponent(JSON.stringify(list))
+				url: './recruitmentDetail?list=' + encodeURIComponent(JSON.stringify(list))
 			});
 		}
 	}

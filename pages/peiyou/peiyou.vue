@@ -47,7 +47,7 @@ export default {
 	methods: {
 		tabList(list) {
 			uni.navigateTo({
-				url: '../peiyou1/peiyou1?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&typeId='+list.id
+				url: './peiyou1?user=' + JSON.stringify(this.user) + '&token=' + this.token+'&typeId='+list.id+'&title='+list.name
 			});
 		}
 	}

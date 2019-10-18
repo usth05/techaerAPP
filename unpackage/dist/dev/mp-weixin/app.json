@@ -1,21 +1,21 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/recruitment/recruitment",
     "pages/workbench/workbench",
+    "pages/peiyou/peiyou",
+    "pages/peiyou/peiyou1",
+    "pages/peiyou/peiyou2",
+    "pages/peiyou/peiyou3",
+    "pages/peiyou/peiyouUser",
+    "pages/peiyou/peiyoucorrect",
+    "pages/recruitment/recruitment",
+    "pages/recruitment/recruitmentDetail",
+    "pages/release/release",
     "pages/home/home",
     "pages/login/login",
     "pages/register/register",
-    "pages/recruitmentDetail/recruitmentDetail",
     "pages/reviseUser/reviseUser",
-    "pages/revisePwd/revisePwd",
-    "pages/peiyou/peiyou",
-    "pages/peiyou1/peiyou1",
-    "pages/peiyou2/peiyou2",
-    "pages/peiyou3/peiyou3",
-    "pages/peiyouUser/peiyouUser",
-    "pages/release/release",
-    "pages/peiyoucorrect/peiyoucorrect"
+    "pages/revisePwd/revisePwd"
   ],
   "subPackages": [],
   "window": {

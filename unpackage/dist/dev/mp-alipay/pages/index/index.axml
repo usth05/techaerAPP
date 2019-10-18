@@ -1,0 +1,1 @@
+<view style="padding-top:10px;"><image class="qbg" src="{{bgImg}}" mode="widthFix"></image><user-info vue-id="1" realName="{{user.realName}}" account="{{user.account}}" img="{{user.img}}" onVueInit="__l"><image class="share" src="../../static/images/share3.png" mode="widthFix" data-event-opts="{{[['tap',[['share',['$event']]]]]}}" onTap="__e"></image></user-info></view>

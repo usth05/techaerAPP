@@ -3,8 +3,67 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"transparentTitle": "always",
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "首页",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/workbench/workbench",
+			"style": {
+				"navigationBarTitleText": "工作台",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/peiyou/peiyou",
+			"style": {
+				"navigationBarTitleText": "培优实验室",
+				"app-plus": {
+					// "titleNView":false
+				}
+			}
+		},
+		{
+			"path": "pages/peiyou/peiyou1",
+			"style": {
+				"navigationBarTitleText": "培优实验室"
+			}
+		},
+		{
+			"path": "pages/peiyou/peiyou2",
+			"style": {
+				"navigationBarTitleText": "培优实验室"
+			}
+		},
+		{
+			"path": "pages/peiyou/peiyou3",
+			"style": {
+				"navigationBarTitleText": "要求"
+			}
+		}, {
+			"path": "pages/peiyou/peiyouUser",
+			"style": {}
+		},
+		{
+			"path": "pages/peiyou/peiyoucorrect",
+			"style": {
+				"app-plus": {
+					"titleNView": {
+						"titleOverflow": "ellipsis",
+						"buttons": [{
+							"fontSrc": "static/font/iconfont.ttf",
+							// "text": "\ue661",
+							"text": "发布",
+							"color": "#333333",
+							"fontSize": "32upx",
+							"float": "right"
+						}]
+					}
+				}
 			}
 		},
 		{
@@ -26,13 +85,12 @@
 			}
 		},
 		{
-			"path": "pages/workbench/workbench",
-			"style": {
-				"navigationBarTitleText": "工作台",
-				"app-plus": {
-					"bounce": "none"
-				}
-			}
+			"path": "pages/recruitment/recruitmentDetail",
+			"style": {}
+		},
+		{
+			"path": "pages/release/release",
+			"style": {}
 		},
 		{
 			"path": "pages/home/home",
@@ -52,10 +110,7 @@
 				"navigationBarTitleText": "注册"
 			}
 		},
-		{
-			"path": "pages/recruitmentDetail/recruitmentDetail",
-			"style": {}
-		},
+
 		{
 			"path": "pages/reviseUser/reviseUser",
 			"style": {
@@ -66,57 +121,6 @@
 			"path": "pages/revisePwd/revisePwd",
 			"style": {
 				"navigationBarTitleText": "找回密码"
-			}
-		},
-		{
-			"path": "pages/peiyou/peiyou",
-			"style": {
-				"navigationBarTitleText": "培优实验室",
-				"app-plus": {
-					// "titleNView":false
-				}
-			}
-		},
-		{
-			"path": "pages/peiyou1/peiyou1",
-			"style": {
-				"navigationBarTitleText": "培优实验室"
-			}
-		},
-		{
-			"path": "pages/peiyou2/peiyou2",
-			"style": {
-				"navigationBarTitleText": "培优实验室"
-			}
-		},
-		{
-			"path": "pages/peiyou3/peiyou3",
-			"style": {
-				"navigationBarTitleText": "要求"
-			}
-		}, {
-			"path": "pages/peiyouUser/peiyouUser",
-			"style": {}
-		}, {
-			"path": "pages/release/release",
-			"style": {}
-		},
-		{
-			"path": "pages/peiyoucorrect/peiyoucorrect",
-			"style": {
-				"app-plus": {
-					"titleNView": {
-						"titleOverflow": "ellipsis",
-						"buttons": [{
-							"fontSrc": "static/font/iconfont.ttf",
-							// "text": "\ue661",
-							"text": "发布",
-							"color": "#333333",
-							"fontSize": "32upx",
-							"float": "right"
-						}]
-					}
-				}
 			}
 		}
 	],

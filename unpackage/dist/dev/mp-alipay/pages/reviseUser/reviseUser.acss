@@ -1,0 +1,254 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @import '../../common/iconfont.css'; */
+.content {
+	padding: 0 20rpx;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.placeholderClass {
+	font-size: 28rpx;
+	color: #cccccc;
+}
+.input-group {
+	margin-bottom: 100rpx;
+}
+.input-row {
+	padding: 10rpx;
+	border-bottom: 2rpx solid #cccccc;
+	position: relative;
+}
+.icon {
+	width: 60rpx;
+	height: 60rpx;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 10;
+}
+.btn-row {
+	margin: 20rpx 10%;
+}
+.code {
+	font-size: 25rpx;
+	position: absolute;
+	right: 5rpx;
+}
+.title {
+	min-width: 20%;
+} 
+

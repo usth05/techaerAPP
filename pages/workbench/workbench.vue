@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<uni-notice-bar scrollable="true" single="true" show-icon="true" text="[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏"></uni-notice-bar>
 		<view class="typeItem u_f_jsb u_f_ac u_f_fw">
 			<view class="item" @tap="goDetail('peiyou')"><image src="../../static/images/peiyou.png" mode="widthFix"></image></view>
 			<view class="item"><image src="../../static/images/evaluation.png" mode="widthFix"></image></view>
@@ -9,7 +10,9 @@
 </template>
 
 <script>
+import { uniNoticeBar } from '../../components/uni-notice-bar/uni-notice-bar.vue';
 export default {
+	components: { uniNoticeBar },
 	data() {
 		return {
 			user: {},

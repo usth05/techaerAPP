@@ -733,7 +733,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6978,7 +6978,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -6999,14 +6999,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7082,7 +7082,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8400,7 +8400,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "transparentTitle": "always", "navigationBarTitleText": "" }, "pages/recruitment/recruitment": { "navigationBarTitleText": "招聘" }, "pages/workbench/workbench": { "navigationBarTitleText": "工作台" }, "pages/home/home": { "navigationBarTitleText": "我的" }, "pages/login/login": { "navigationBarTitleText": "登录" }, "pages/register/register": { "navigationBarTitleText": "注册" }, "pages/recruitmentDetail/recruitmentDetail": {}, "pages/reviseUser/reviseUser": { "navigationBarTitleText": "编辑信息" }, "pages/revisePwd/revisePwd": { "navigationBarTitleText": "找回密码" }, "pages/peiyou/peiyou": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou1/peiyou1": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou2/peiyou2": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou3/peiyou3": { "navigationBarTitleText": "要求" }, "pages/peiyouUser/peiyouUser": {}, "pages/release/release": {}, "pages/peiyoucorrect/peiyoucorrect": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小学阅读吧教师端", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationBarTitleText": "首页" }, "pages/workbench/workbench": { "navigationBarTitleText": "工作台" }, "pages/peiyou/peiyou": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou/peiyou1": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou/peiyou2": { "navigationBarTitleText": "培优实验室" }, "pages/peiyou/peiyou3": { "navigationBarTitleText": "要求" }, "pages/peiyou/peiyouUser": {}, "pages/peiyou/peiyoucorrect": {}, "pages/recruitment/recruitment": { "navigationBarTitleText": "招聘" }, "pages/recruitment/recruitmentDetail": {}, "pages/release/release": {}, "pages/home/home": { "navigationBarTitleText": "我的" }, "pages/login/login": { "navigationBarTitleText": "登录" }, "pages/register/register": { "navigationBarTitleText": "注册" }, "pages/reviseUser/reviseUser": { "navigationBarTitleText": "编辑信息" }, "pages/revisePwd/revisePwd": { "navigationBarTitleText": "找回密码" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小学阅读吧教师端", "navigationBarBackgroundColor": "#FFF", "backgroundColor": "#FFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8535,7 +8535,7 @@ function normalizeComponent (
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _serverAddrImg = "http://47.98.249.149:8020/readbaoss/"; //查看线上服务器图片地址
 var _serverAddr = "http://47.98.249.149:8020/readba/"; //线上服务器地址
-// const _serverAddr = "http://192.168.1.108:8080/zhijian-app-web/"; //本地服务器地址
+// const _serverAddr = "http://192.168.1.105:8080/zhijian-app-web/"; //本地服务器地址
 
 
 // cookie 的本地存储位置

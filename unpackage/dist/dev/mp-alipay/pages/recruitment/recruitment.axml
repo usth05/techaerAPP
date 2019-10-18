@@ -1,0 +1,1 @@
+<view><uni-list vue-id="1" onVueInit="__l"><block a:for="{{listData}}" a:for-item="list" a:for-index="index" a:key="index"><uni-list-item vue-id="{{('2-'+index)+','+('1')}}" title="{{list.name}}" note="{{list.note}}" data-event-opts="{{[['^click',[['tabList',['$0'],[[['listData','',index]]]]]]]}}" onClick="__e" onVueInit="__l"></uni-list-item></block></uni-list></view>

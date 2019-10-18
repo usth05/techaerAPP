@@ -122,15 +122,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var notice = function notice() {return __webpack_require__.e(/*! import() | components/notice/notice */ "components/notice/notice").then(__webpack_require__.bind(null, /*! ../../components/notice/notice.vue */ 170));};var _default =
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userInfo = function userInfo() {return __webpack_require__.e(/*! import() | components/user/userInfo */ "components/user/userInfo").then(__webpack_require__.bind(null, /*! ../../components/user/userInfo.vue */ 170));};var _default =
 
 
 
@@ -149,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
 
 {
   components: {
-    notice: notice },
+    userInfo: userInfo },
 
   data: function data() {
     return {
@@ -159,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
       user: {
         realName: '',
         account: '',
-        img: '../../static/images/homeed.png' } };
+        img: '' } };
 
 
   },
@@ -170,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
       success: function success(res) {
         if (res.data) {
           _this.user = res.data;
-          _this.user.img = '../../static/images/homeed.png';
+          // _this.user.img = '../../static/images/homeed.png';
         } else {
           uni.redirectTo({
             url: '../login/login' });
@@ -189,9 +181,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     login: function login() {
-      uni.navigateTo({
-        url: '../login/login' });
+      uni.redirectTo({
+        url: '/pages/login/login' });
 
+    },
+    share: function share() {
+      console.log("share");
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
