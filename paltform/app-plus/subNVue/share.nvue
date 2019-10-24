@@ -1,0 +1,43 @@
+<template>
+	<div class="share">
+		<div>
+			<div style="shareBody">
+				<div style="height: 40px; line-height:40px ;font-family: '黑体';text-align: center;">小学阅读吧分享</div>
+				<ul class="shareul">
+					<li onclick="shareHref(1);">
+						<img src="/static/img/share_to_icon_qq.png" alt="" />
+						<div>微信</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	methods: {
+		shareHref(i) {
+			console.log(i);
+		}
+	}
+};
+</script>
+
+<style>
+.shareBody {
+	width: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 1);
+}
+.shareul {
+	width: 100%;
+	height: 100%;
+}
+.shareul li {
+	width: 33%;
+}
+.shareul li img {
+	width: 100%;
+}
+</style>

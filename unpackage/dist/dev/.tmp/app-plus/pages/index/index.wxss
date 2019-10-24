@@ -1,11 +1,27 @@
 
-.claer{
+.claer {
 	clear: both;
 }
-.share{
-	width: 80rpx; 
+.share {
+	width: 80rpx;
 	height: 80rpx;
 	position: relative;
 	z-index: 99999 !important;
+}
+#share {
+	width: 100%;
+	height: 200rpx;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 999999;
+	background: #FFFFFF;
+}
+#share .shareBox {
+	width: 33%;
+	height: 100%;
+}
+#share .shareBox image {
+	width: 80%;
 }
 

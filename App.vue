@@ -20,10 +20,12 @@ export default {
 /* 引入自定义图标 */
 @import './common/iconfont.css';
 /*每个页面公共css */
+/* #ifdef APP-PLUS */
 .status_bar {
 	height: var(--status-bar-height);
 	width: 100%;
 }
+/* #endif */
 .qbg {
 	width: 100%;
 	/* height: 100vh; */

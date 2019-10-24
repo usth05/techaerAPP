@@ -157,6 +157,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   onShow: function onShow() {
     var _this = this;
+    uni.hideTabBar();
     uni.getStorage({
       key: 'userInfo',
       success: function success(res) {
@@ -186,7 +187,23 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     share: function share() {
-      console.log("share");
+      uni.getProvider({
+        service: 'share',
+        success: function success(res) {
+          console.log(res.provider);
+          if (~res.provider.indexOf('qq')) {
+            uni.login({
+              provider: 'qq',
+              success: function success(loginRes) {
+                console.log(JSON.stringify(loginRes));
+              } });
+
+          } else if (~res.provider.indexOf('weixin')) {
+            console.log();
+          }
+        } });
+
+      console.log('share');
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

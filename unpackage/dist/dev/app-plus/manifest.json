@@ -11,7 +11,7 @@
     "code": "100"
   },
   "description": "",
-  "launch_path": "__uniapptabbar.html",
+  "launch_path": "__uniappview.html",
   "developer": {
     "name": "",
     "email": "",
@@ -26,7 +26,7 @@
   },
   "plus": {
     "useragent": {
-      "value": "uni-app appservice",
+      "value": "uni-app",
       "concatenate": true
     },
     "splashscreen": {
@@ -36,14 +36,18 @@
       "delay": 0
     },
     "popGesture": "close",
-    "launchwebview": {},
+    "launchwebview": {
+      "id": "1",
+      "kernel": "WKWebview",
+      "uni-app": "auto"
+    },
     "statusbar": {
       "immersed": "supportedDevice",
       "style": "dark",
       "background": "#FFF"
     },
     "usingComponents": true,
-    "nvueCompiler": "uni-app",
+    "nvueCompiler": "weex",
     "distribute": {
       "splashscreen": {
         "android": {
@@ -161,21 +165,48 @@
       }
     },
     "uni-app": {
-      "compilerVersion": "2.3.3",
+      "compilerVersion": "2.3.6",
       "control": "v8",
-      "nvueCompiler": "uni-app",
-      "renderer": "auto",
-      "nvue": {
-        "flex-direction": "column"
-      }
+      "nvueCompiler": "weex",
+      "renderer": "auto"
     },
-    "secondwebview": {
-      "id": "1",
-      "launch_path": "__uniappview.html",
-      "kernel": "WKWebview",
-      "mode": "child",
-      "top": 0,
-      "bottom": 56
+    "tabBar": {
+      "color": "#333333",
+      "selectedColor": "#FA6814",
+      "borderStyle": "rgba(0,0,0,0.4)",
+      "backgroundColor": "#FFFFFF",
+      "fontSize": "14px",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "text": "首页",
+          "iconPath": "static/images/index.png",
+          "selectedIconPath": "static/images/indexed.png"
+        },
+        {
+          "pagePath": "pages/workbench/workbench",
+          "text": "工作台",
+          "iconPath": "static/images/paper.png",
+          "selectedIconPath": "static/images/papered.png"
+        },
+        {
+          "pagePath": "pages/recruitment/recruitment",
+          "text": "招聘",
+          "iconPath": "static/images/news.png",
+          "selectedIconPath": "static/images/newsed.png"
+        },
+        {
+          "pagePath": "pages/home/home",
+          "text": "我的",
+          "iconPath": "static/images/me.png",
+          "selectedIconPath": "static/images/meed.png"
+        }
+      ],
+      "height": "50px",
+      "child": [
+        "lauchwebview"
+      ],
+      "selected": 0
     }
   }
 }

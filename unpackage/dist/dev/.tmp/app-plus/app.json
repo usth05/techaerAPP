@@ -29,7 +29,7 @@
     "selectedColor": "#FA6814",
     "borderStyle": "black",
     "backgroundColor": "#FFFFFF",
-    "fontSize": "24px",
+    "fontSize": "14px",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -57,13 +57,13 @@
       }
     ]
   },
-  "nvueCompiler": "uni-app",
+  "nvueCompiler": "weex",
   "renderer": "auto",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "小学阅读吧教师端",
-  "compilerVersion": "2.3.3",
+  "compilerVersion": "2.3.6",
   "usingComponents": {}
 }
