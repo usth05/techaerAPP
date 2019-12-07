@@ -1,7 +1,7 @@
 {
-  "transparentTitle": "always",
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "首页",
+  "titleNView": false,
   "usingComponents": {
-    "notice": "/components/notice/notice"
+    "user-info": "/components/user/userInfo"
   }
 }

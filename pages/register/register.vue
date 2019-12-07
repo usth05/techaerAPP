@@ -331,8 +331,10 @@ export default {
 }
 .code {
 	font-size: 25upx;
+	width: 200upx;
 	position: absolute;
 	right: 5upx;
+	z-index: 99;
 }
 .title {
 	min-width: 20%; 

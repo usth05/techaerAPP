@@ -4881,10 +4881,12 @@ to {
   content: "\EB97";
 }
 /*每个页面公共css */
+
 .status_bar {
 	height: var(--status-bar-height);
 	width: 100%;
 }
+
 .qbg {
 	width: 100%;
 	/* height: 100vh; */

@@ -4,7 +4,7 @@
 			<div style="shareBody">
 				<div style="height: 40px; line-height:40px ;font-family: '黑体';text-align: center;">小学阅读吧分享</div>
 				<ul class="shareul">
-					<li onclick="shareHref(1);">
+					<li class="shareli" onclick="shareHref(1);">
 						<img src="/static/img/share_to_icon_qq.png" alt="" />
 						<div>微信</div>
 					</li>
@@ -34,10 +34,10 @@ export default {
 	width: 100%;
 	height: 100%;
 }
-.shareul li {
+.shareul .shareli {
 	width: 33%;
 }
-.shareul li img {
+.shareul .shareli img {
 	width: 100%;
 }
 </style>

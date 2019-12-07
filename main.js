@@ -6,7 +6,7 @@ import imgOss from "./common/imgOss.js"
 import videoOss from './common/videoOss.js'
 Vue.config.productionTip = false
 
-Vue.prototype.config = config
+Vue.prototype.config = config 
 
 Vue.prototype.uniHttp = new request.uniHttp()
 Vue.prototype.$http = request.http

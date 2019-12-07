@@ -33,7 +33,7 @@ export default {
 	},
 	onShow() {
 		let _this = this;
-		uni.hideTabBar()
+		// uni.hideTabBar()
 		uni.getStorage({
 			key: 'userInfo',
 			success: function(res) {
@@ -102,7 +102,7 @@ export default {
 	bottom: 0;
 	left: 0;
 	z-index: 999999;
-	background: #FFFFFF;
+	background: #ffffff;
 }
 #share .shareBox {
 	width: 33%;

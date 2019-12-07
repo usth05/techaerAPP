@@ -157,7 +157,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   onShow: function onShow() {
     var _this = this;
-    uni.hideTabBar();
+    // uni.hideTabBar()
     uni.getStorage({
       key: 'userInfo',
       success: function success(res) {

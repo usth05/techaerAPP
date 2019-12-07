@@ -328,8 +328,10 @@
 }
 .code {
 	font-size: 25rpx;
+	width: 200rpx;
 	position: absolute;
 	right: 5rpx;
+	z-index: 99;
 }
 .title {
 	min-width: 20%;
